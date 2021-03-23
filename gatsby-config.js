@@ -1,8 +1,9 @@
 module.exports = {
+  pathPrefix: "/coderbunker.ca",
   siteMetadata: {
-    title: `CoderBunker`,
+    title: `Coderbunker Canada`,
     author: `Carms Ng`,
-    description: `coderbunker.ca Website`, 
+    description: `Coderbunker Canada Website`, 
   },
   plugins: [
     "gatsby-plugin-sharp",
