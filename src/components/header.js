@@ -3,11 +3,33 @@ import PropTypes from "prop-types"
 import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import styled from 'styled-components';
+
 import SiteBorderStyles from '../styles/SiteBorderStyles';
-
-import { FiLinkedin, FiGithub } from 'react-icons/fi';
 import ButtonRed from "./button";
+import { FiLinkedin, FiGithub } from 'react-icons/fi';
 
+const HeaderStyles = styled.header`
+  border-bottom: 1px solid var(--lightgrey);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 999;
+  .header-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    ul {
+      margin-left: auto;
+    }
+  }
+  @media (min-width: 768px) {
+    .header-content {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+`;
 export default function Header() {
   const data = useStaticQuery(graphql`
     query {
@@ -23,18 +45,9 @@ export default function Header() {
 
   const { languages, originalPath } = useI18next();
   return (
-    <header
-      style={{
-        borderBottom: `1px solid var(--lightgrey)`,
-        padding: `1rem 0`,
-        position: 'fixed',
-        width: `100%`,
-        background: `rgba(255, 255, 255, 0.5)`,
-        zIndex: 999
-      }}
-    >
+    <HeaderStyles>
       <SiteBorderStyles>
-        <div className="flex justify-between items-center">
+        <div className="header-content items-center">
           {/* social links*/}
           <div className="hidden md:block flex flex-row">
             <a className="inline-block mr-5" target="_blank" rel="noreferrer" href="https://www.linkedin.com/company/coderbunker/">
@@ -71,7 +84,7 @@ export default function Header() {
           </ul>
         </div>
       </SiteBorderStyles>
-    </header>
+    </HeaderStyles>
   );
 };
 
