@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     --black: #2E2E2E;
     --white: #fff;
     --darkgrey: #747474;
-    --lightgrey: #dcdcdc;
+    --lightgrey: #EEEEEE;
     --peach: #FCF5E8;
   }
   * {
@@ -17,6 +17,9 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     font-size: 16px;
+    scroll-snap-type: mandatory;
+	  scroll-snap-points-y: repeat(100vh);
+	  scroll-snap-type: y mandatory;
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -31,6 +34,11 @@ const GlobalStyles = createGlobalStyle`
     padding: 4px 16px;
     transform: skew(-16deg) rotate(-2deg);
     width: min-content;
+  }
+  section {
+    padding-top: 100px;
+    height: 100vh;
+    scroll-snap-align: start;
   }
 `;
 

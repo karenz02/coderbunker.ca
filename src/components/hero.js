@@ -7,11 +7,10 @@ import Img from 'gatsby-image';
 import LogoGarden from '../components/logo-garden';
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 
-const HeroStyles = styled.div`
+const HeroStyles = styled.section`
   position: relative;
   .hero {
-    padding-top: 100px;
-    height: 80vh;
+    height: calc(80vh - 100px);
     p {
       color: var(--darkgrey);
     }
@@ -66,11 +65,11 @@ export default function Hero() {
               <span>
                 <Trans>Introducing Coderbunker in the </Trans>
               </span>
-              <span className="inline-block highlight-red uppercase">
+              <span className="inline highlight-red uppercase">
                 <Trans>North</Trans>
               </span>
             </h1>
-            <p className="text-xl mb-10">
+            <p className="text-2xl mb-10">
               <Trans>We empower freelancer community to excel in long term projects.</Trans>
             </p>
             <div className="stats p-2 md:p-4 mb-10 flex">
@@ -92,15 +91,15 @@ export default function Hero() {
           {/* Hero Image*/}
           <div className="flex-1 hidden md:block m-8">
             <Img
-                fluid={data.fileName.childImageSharp.fluid}
-                alt="Coderbunker Coders"/>
+              fluid={data.fileName.childImageSharp.fluid}
+              alt="Coderbunker Coders" />
           </div>
         </div>
-        
+
       </SiteBorderStyles>
       {/* logo garden */}
       <LogoGarden />
-      <div className="quarter-circle-bottom-left"/>
+      <div className="quarter-circle-bottom-left" />
     </HeroStyles>
   )
 }

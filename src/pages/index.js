@@ -4,6 +4,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero";
+import Service from "../components/service";
 
 export default function IndexPage() {
   const {t} = useTranslation();
@@ -11,6 +12,7 @@ export default function IndexPage() {
     <Layout>
       <SEO title={t('Home')} />
       <Hero />
+      <Service />
     </Layout>
   );
 };
