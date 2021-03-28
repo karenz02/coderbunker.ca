@@ -1,54 +1,76 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import {Link, useI18next} from 'gatsby-plugin-react-i18next';
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import SiteBorderStyles from '../styles/SiteBorderStyles';
 
-const Header = ({siteTitle}) => {
-  const {languages, originalPath} = useI18next();
+import { FiLinkedin, FiGithub } from 'react-icons/fi';
+import ButtonRed from "./button";
+
+export default function Header() {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "coderbunker-logo-black.png" }) {
+        childImageSharp {
+          fixed(width: 50) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  const { languages, originalPath } = useI18next();
   return (
     <header
       style={{
-        background: `black`,
-        marginBottom: `1.45rem`,
+        borderBottom: `1px solid var(--lightgrey)`,
+        padding: `1rem 0`,
+        position: 'fixed',
+        width: `100%`,
+        background: `rgba(255, 255, 255, 0.5)`,
+        zIndex: 999
       }}
     >
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: `center`
-        }}
-      >
-        <h1 style={{margin: 0}}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`
-            }}>
-            {siteTitle}
-          </Link>
-        </h1>
+      <SiteBorderStyles>
+        <div className="flex justify-between items-center">
+          {/* social links*/}
+          <div className="hidden md:block flex flex-row">
+            <a className="inline-block mr-5" target="_blank" rel="noreferrer" href="https://www.linkedin.com/company/coderbunker/">
+              <FiLinkedin className="text-2xl" />
+            </a>
+            <a className="inline-block" target="_blank" rel="noreferrer" href="https://github.com/coderbunker">
+              <FiGithub className="text-2xl" />
+            </a>
+          </div>
 
-        <ul style={{margin: 0}}>
-          {languages.map((lng) => (
-            <li key={lng}>
-              <Link
-                to={originalPath}
-                language={lng}
-                style={{
-                  color: `white`,
-                  textDecoration: `none`
-                }}
-              >
-                {lng}
-              </Link>
+          {/* logo */}
+          {/* TODO: center logo */}
+          <Link to="/">
+            <Img
+              fixed={data.file.childImageSharp.fixed}
+              alt="Coderbunker Logo" />
+          </Link>
+
+          <ul className="flex items-center">
+            {/* language switcher */}
+            {languages.map((lng) => (
+              <li key={lng} className="text-xl mr-5">
+                <Link
+                  to={originalPath}
+                  language={lng}
+                >
+                  {lng.toUpperCase()}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <ButtonRed href="/page-2/" />
             </li>
-          ))}
-        </ul>
-      </div>
+          </ul>
+        </div>
+      </SiteBorderStyles>
     </header>
   );
 };
@@ -58,7 +80,5 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: `Coderbunker Canada`,
 }
-
-export default Header
