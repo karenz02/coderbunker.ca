@@ -17,9 +17,13 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     font-size: 16px;
+    overflow-x: hidden;
     scroll-snap-type: mandatory;
 	  scroll-snap-points-y: repeat(100vh);
 	  scroll-snap-type: y mandatory;
+  }
+  body {
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -31,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
     display: inline-block;
     background: var(--lightred);
     color: var(--red);
-    padding: 4px 16px;
+    padding: 8px 16px;
     transform: skew(-16deg) rotate(-2deg);
     width: min-content;
   }
