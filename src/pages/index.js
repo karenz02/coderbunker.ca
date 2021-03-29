@@ -5,6 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/hero";
 import Service from "../components/service";
+import Team from "../components/team";
+import Steps from "../components/steps";
+import Join from "../components/join";
 
 export default function IndexPage() {
   const {t} = useTranslation();
@@ -15,6 +18,7 @@ export default function IndexPage() {
       <Service />
       <Team />
       <Steps />
+      <Join />
     </Layout>
   );
 };

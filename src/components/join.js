@@ -1,0 +1,86 @@
+import * as React from "react"
+import { graphql, useStaticQuery } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
+import styled from 'styled-components';
+import Img from 'gatsby-image';
+
+import SiteBorderStyles from '../styles/SiteBorderStyles';
+import BackgroundImage from "./bg-image";
+
+const JoinStyles = styled.section`
+  position: relative;
+  .bg-img-wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100%;
+    z-index: -1;
+  }
+  .card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .icon-wrapper {
+    background-color: var(--lightgrey);
+    padding: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 10px;
+  }
+  svg, p {
+    color: var(--darkgrey);
+  }
+  ul {
+    list-style-type: "→";
+    padding-left: 2rem;
+    li {
+      padding-left: 0.5rem;
+    }
+  }
+`;
+
+export default function Join() {
+  const data = useStaticQuery(graphql`
+    query {
+      fileName: file(relativePath: { eq: "cowork.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 800, quality: 80) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <JoinStyles>
+      <SiteBorderStyles className="flex flex-col">
+        {/* section-header */}
+        <div className="text-left md:text-center py-4 md:pt-16 md:pb-8 lg:pt-24 md:pb-8">
+          <h2 className="text-3xl lg:text-4xl">
+            <span className="highlight-red">
+              <Trans>Join</Trans>
+            </span>
+            <Trans> Our Community</Trans>
+          </h2>
+          <p className="hidden md:block text-xl lg:text-2xl md:my-4">
+            <Trans>We are 50+ International Digital Talents and growing!</Trans>
+          </p>
+        </div>  
+        {/* hashtags */}
+        <div className="hash-tags" style={{maxwidth: `600px`}}>
+          <p className="text-lg lg:text-2xl md:my-4 md:pb-8 text-center">#SoftwareDevelopment #EmbeddedSystems #Blockchain #DigitalIdentity #PublicKeyInfrastructure #SystemAdministration #Cybersecurity #Encryption #Linux #FPGA #ARM #RISC-V #Ethereum #PGP #PostgreSQL #AWS #Azure #GoogleCloud #etc</p>
+          <Img fluid={data.fileName.childImageSharp.fluid}
+               alt="Coder Coworking"
+               style={{maxWidth: `500px`, margin: `0 auto`}} />
+        </div>
+      </SiteBorderStyles>
+      <div className="bg-img-wrapper">
+        <BackgroundImage />
+      </div>
+    </JoinStyles>
+  )
+}
