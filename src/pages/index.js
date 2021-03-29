@@ -13,6 +13,7 @@ export default function IndexPage() {
       <SEO title={t('Home')} />
       <Hero />
       <Service />
+      <Team />
     </Layout>
   );
 };
