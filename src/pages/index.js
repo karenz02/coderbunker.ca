@@ -14,6 +14,7 @@ export default function IndexPage() {
       <Hero />
       <Service />
       <Team />
+      <Steps />
     </Layout>
   );
 };
