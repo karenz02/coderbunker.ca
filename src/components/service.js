@@ -2,11 +2,11 @@ import * as React from "react"
 import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 import { FaCube, FaChalkboardTeacher } from 'react-icons/fa';
 
 
 import SiteBorderStyles from '../styles/SiteBorderStyles';
+import BackgroundImage from "./bg-image";
 
 const ServiceStyles = styled.section`
   position: relative;
@@ -70,7 +70,7 @@ export default function Service() {
           </p>
         </div>
         {/* Cards */}
-        <div className="flex-grow cards flex flex-col md:flex-row">
+        <div className="flex-grow flex flex-col md:flex-row">
           {/* Card */}
           <div className="card my-2 md:m-6 lg:m-12 p-4 md:p-8 flex-1">
             <div className="card-header flex items-center text-xl lg:text-2xl">
@@ -127,10 +127,7 @@ export default function Service() {
         </div>
       </SiteBorderStyles>
       <div className="bg-img-wrapper">
-        <Img
-          className="bunkers"
-          fluid={data.fileName.childImageSharp.fluid}
-          alt="Coderbunker Bunkers" />
+        <BackgroundImage />
       </div>
     </ServiceStyles>
   )

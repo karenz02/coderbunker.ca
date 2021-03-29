@@ -8,6 +8,7 @@ import Service from "../components/service";
 import Team from "../components/team";
 import Steps from "../components/steps";
 import Join from "../components/join";
+import Contact from "../components/contact";
 
 export default function IndexPage() {
   const {t} = useTranslation();
@@ -19,6 +20,7 @@ export default function IndexPage() {
       <Team />
       <Steps />
       <Join />
+      <Contact />
     </Layout>
   );
 };
