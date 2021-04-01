@@ -36,7 +36,7 @@ const TeamStyles = styled.section`
   position: relative;
   .bg-img-wrapper {
     position: absolute;
-    bottom: 20px;
+    bottom: 5vw;
     left: 50vw;
     z-index: -1;
   }

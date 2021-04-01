@@ -91,7 +91,7 @@ const ServiceStyles = styled.section`
   position: relative;
   .bg-img-wrapper {
     position: absolute;
-    bottom: 20px;
+    bottom: 5vw;
     left: -200px;
     z-index: -1;
   }

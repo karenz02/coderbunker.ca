@@ -12,7 +12,7 @@ export default function Join() {
     query {
       fileName: file(relativePath: { eq: "cowork.png" }) {
         childImageSharp {
-          fluid(maxWidth: 800, quality: 80) {
+          fluid(maxWidth: 500, quality: 80) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -40,7 +40,8 @@ export default function Join() {
           <p className="text-lg lg:text-2xl md:my-4 md:pb-8 text-center">#SoftwareDevelopment #EmbeddedSystems #Blockchain #DigitalIdentity #PublicKeyInfrastructure #SystemAdministration #Cybersecurity #Encryption #Linux #FPGA #ARM #RISC-V #Ethereum #PGP #PostgreSQL #AWS #Azure #GoogleCloud #etc</p>
           <Img fluid={data.fileName.childImageSharp.fluid}
                alt="Coder Coworking"
-               style={{maxWidth: `500px`, margin: `0 auto`}} />
+               style={{maxWidth: `500px`, margin: `0 auto`}}
+               imgStyle={{padding: `2rem`}}/>
         </div>
       </SiteBorderStyles>
       <div className="bg-img-wrapper flex">
@@ -56,7 +57,7 @@ const JoinStyles = styled.section`
   position: relative;
   .bg-img-wrapper {
     position: absolute;
-    bottom: 20px;
+    bottom: 5vw;
     left: 20px;
     z-index: -1;
   }
