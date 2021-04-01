@@ -6,17 +6,6 @@ import SiteBorderStyles from '../styles/SiteBorderStyles';
 import BackgroundImage from "./bg-image";
 import Carousel from "./carousel";
 
-const TeamStyles = styled.section`
-  position: relative;
-  .bg-img-wrapper {
-    position: absolute;
-    bottom: 20px;
-    right: -50vw;
-    width: 100%;
-    z-index: -1;
-  }
-`;
-
 export default function Team() {
   return (
     <TeamStyles>
@@ -42,3 +31,17 @@ export default function Team() {
     </TeamStyles>
   )
 }
+
+const TeamStyles = styled.section`
+  position: relative;
+  .bg-img-wrapper {
+    position: absolute;
+    bottom: 20px;
+    right: -50vw;
+    width: 100%;
+    z-index: -1;
+  }
+  p {
+    color: var(--darkgrey);
+  }
+`;

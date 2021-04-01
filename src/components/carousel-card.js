@@ -3,7 +3,7 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { FiLinkedin, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Img from 'gatsby-image';
-import people from '../assets/content/team';
+import team from '../assets/content/team.json';
 
 
 
@@ -17,8 +17,8 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
   }
 
   // set the person based on the image
-  const person = people.filter(p => {
-    return p.image === pic.node.base;
+  const person = team.content.filter(member => {
+    return member.image === pic.node.base;
   })[0]
 
   return (
