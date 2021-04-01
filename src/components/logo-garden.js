@@ -46,6 +46,7 @@ export default function LogoGarden() {
               fluid(maxWidth: 500, quality: 80) {
                 ...GatsbyImageSharpFluid
               }
+              id
             }
           }
         }
@@ -61,12 +62,12 @@ export default function LogoGarden() {
           <Trans>Trusted by these partners and clients</Trans>
         </p>
         <div className="logos">
-          {logos.map(({ node }) => (
+          {logos.map(({node}) => (
             <Img
               imgStyle={{ width: `auto`, height: `auto`, top: `50%`, left: `50%`, transform: `translate(-50%, -50%)`}}
               className="m-4"
               fluid={node.childImageSharp.fluid}
-              key={node.base}
+              key={node.childImageSharp.id}
               alt={node.base.split('.')[0]}
             />
           ))}

@@ -5,8 +5,6 @@ import { FiLinkedin, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons
 import Img from 'gatsby-image';
 import team from '../assets/content/team.json';
 
-
-
 export default function CarouselCard({pic, index, count, activeIndex, setActiveIndex}) {
   // handle carousel navigation
   const handlePrev = () => {
@@ -47,7 +45,7 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
           <ul className="py-4 hidden md:block">
             {person.highlights.map(hl => {
               return (
-                <li>
+                <li key={hl}>
                   <Trans>{hl}</Trans>
                 </li>
               )
@@ -56,9 +54,9 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
         </div>
       </div>
       <ul className="py-4 block md:hidden">
-        {person.highlights.map(hl => {
+        {person.highlights.map((hl, i) => {
           return (
-            <li>
+            <li key={hl + i}>
               <Trans>{hl}</Trans>
             </li>
           )
@@ -102,7 +100,7 @@ const CarouselCardStyles = styled.div`
     color: var(--darkgrey);
   }
   a svg:hover {
-      color: var(--red);
+      color: var(--black);
   }
   .carousel-btns {
     position: absolute;

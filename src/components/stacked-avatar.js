@@ -17,6 +17,7 @@ export default function StackedAvatar() {
               fixed(width: 200) {
                 ...GatsbyImageSharpFixed
               }
+              id
             }
           }
         }
@@ -35,6 +36,7 @@ export default function StackedAvatar() {
             fixed={pic.node.childImageSharp.fixed}
             style={{width: `75px`, height: `75px`, zIndex: `${zIndex}`, border: `1px solid var(--white)`, transform: `translateX(${translateX}%)`}}
             imgStyle={{objectPosition: `top center`}}
+            key={pic.node.childImageSharp.id}
           />
         )
       })}

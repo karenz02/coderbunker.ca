@@ -21,6 +21,7 @@ export default function Carousel() {
                 ...GatsbyImageSharpFluid
               }
             }
+            id
           }
         }
       }
@@ -30,9 +31,8 @@ export default function Carousel() {
   return (
     <>
       {pics.map((pic, index) => {
-        return (<CarouselCard pic={pic} key={pic.node.base} index={index} count={pics.length} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>)
+        return (<CarouselCard pic={pic} key={pic.node.id} index={index} count={pics.length} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>)
       })}
-
     </>
   )
 }
