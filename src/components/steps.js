@@ -1,69 +1,8 @@
 import * as React from "react"
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import { FaSignature, FaRocket, FaCubes } from "react-icons/fa";
-
-const StepsStyles = styled.section`
-  position: relative;
-  .bg-img-wrapper {
-    position: absolute;
-    bottom: 20px;
-    right: -50vw;
-    width: 100%;
-    z-index: -1;
-  }
-  .cards {
-    .card:first-child {
-      z-index: 3;
-      transform: translateX(0);
-    }
-    .card:nth-child(2) {
-      z-index: 2;
-      transform: translateY(0);
-    }
-    .card:last-child {
-      z-index: 1;
-      transform: translate(0, 0)
-    }
-  }
-  .card {
-    border-radius: 10px;
-    background: var(--white);
-  }
-  
-  .icon-wrapper {
-    background-color: var(--red);
-    padding: 1rem 1.5rem;
-    transform: skew(-16deg);
-    width: min-content;
-    height: min-content;
-  }
-  svg {
-    color: var(--white);
-  }
-  p {
-    color: var(--darkgrey);
-  }
-
-  @media (min-width: 768px) {
-    .card {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-    .cards {
-      .card:first-child {
-        transform: translateX(10px);
-      }
-      .card:nth-child(2) {
-        transform: translateY(40px);
-      }
-      .card:last-child {
-        transform: translate(-10px, 80px)
-      }
-    }
-  }
-`;
 
 export default function Steps() {
   return (
@@ -125,11 +64,66 @@ export default function Steps() {
               </p>
             </div>
           </div>
-
         </div>
-
-
       </SiteBorderStyles>
     </StepsStyles>
   )
 }
+
+const StepsStyles = styled.section`
+  position: relative;
+  .bg-img-wrapper {
+    position: absolute;
+    bottom: 20px;
+    right: -50vw;
+    z-index: -1;
+  }
+  .cards {
+    .card:first-child {
+      z-index: 3;
+      transform: translateX(0);
+    }
+    .card:nth-child(2) {
+      z-index: 2;
+      transform: translateY(0);
+    }
+    .card:last-child {
+      z-index: 1;
+      transform: translate(0, 0)
+    }
+  }
+  .card {
+    border-radius: 10px;
+    background: var(--white);
+  }
+  .icon-wrapper {
+    background-color: var(--red);
+    padding: 1rem 1.5rem;
+    transform: skew(-16deg);
+    width: min-content;
+    height: min-content;
+  }
+  svg {
+    color: var(--white);
+  }
+  p {
+    color: var(--darkgrey);
+  }
+
+  @media (min-width: 768px) {
+    .card {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .cards {
+      .card:first-child {
+        transform: translateX(10px);
+      }
+      .card:nth-child(2) {
+        transform: translateY(40px);
+      }
+      .card:last-child {
+        transform: translate(-10px, 80px)
+      }
+    }
+  }
+`;

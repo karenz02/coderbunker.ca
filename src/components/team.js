@@ -26,7 +26,7 @@ export default function Team() {
         <Carousel />
       </SiteBorderStyles>
       <div className="bg-img-wrapper">
-        <BackgroundImage />
+        <BackgroundImage style={{width: `48vw`}}/>
       </div>
     </TeamStyles>
   )
@@ -37,8 +37,7 @@ const TeamStyles = styled.section`
   .bg-img-wrapper {
     position: absolute;
     bottom: 20px;
-    right: -50vw;
-    width: 100%;
+    left: 50vw;
     z-index: -1;
   }
   p {

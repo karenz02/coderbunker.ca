@@ -7,41 +7,6 @@ import Img from 'gatsby-image';
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import BackgroundImage from "./bg-image";
 
-const JoinStyles = styled.section`
-  position: relative;
-  .bg-img-wrapper {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 100%;
-    z-index: -1;
-  }
-  .card {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .icon-wrapper {
-    background-color: var(--lightgrey);
-    padding: 0.75rem;
-    margin-right: 0.75rem;
-    border-radius: 10px;
-  }
-  svg, p {
-    color: var(--darkgrey);
-  }
-  ul {
-    list-style-type: "→";
-    padding-left: 2rem;
-    li {
-      padding-left: 0.5rem;
-    }
-  }
-`;
-
 export default function Join() {
   const data = useStaticQuery(graphql`
     query {
@@ -78,9 +43,45 @@ export default function Join() {
                style={{maxWidth: `500px`, margin: `0 auto`}} />
         </div>
       </SiteBorderStyles>
-      <div className="bg-img-wrapper">
-        <BackgroundImage />
+      <div className="bg-img-wrapper flex">
+        <BackgroundImage style={{width: `45vw`}} imgStyle={{height: `auto`}}/>
+        <BackgroundImage style={{width: `30vw`, transform: `translate(-1vw, 10vw)`}} imgStyle={{height: `auto`}}/>
+        <BackgroundImage style={{width: `10vw`, transform: `translate(5vw, 10vw)`}} imgStyle={{height: `auto`}}/>
       </div>
     </JoinStyles>
   )
 }
+
+const JoinStyles = styled.section`
+  position: relative;
+  .bg-img-wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: -1;
+  }
+  .card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .icon-wrapper {
+    background-color: var(--lightgrey);
+    padding: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 10px;
+  }
+  svg, p {
+    color: var(--darkgrey);
+  }
+  ul {
+    list-style-type: "→";
+    padding-left: 2rem;
+    li {
+      padding-left: 0.5rem;
+    }
+  }
+`;

@@ -1,59 +1,11 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { FaCube, FaChalkboardTeacher } from 'react-icons/fa';
-
-
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import BackgroundImage from "./bg-image";
 
-const ServiceStyles = styled.section`
-  position: relative;
-  .bg-img-wrapper {
-    position: absolute;
-    bottom: 20px;
-    left: -200px;
-    width: 100%;
-    z-index: -1;
-  }
-  .card {
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .icon-wrapper {
-    background-color: var(--lightgrey);
-    padding: 0.75rem;
-    margin-right: 0.75rem;
-    border-radius: 10px;
-  }
-  svg, p {
-    color: var(--darkgrey);
-  }
-  ul {
-    list-style-type: "→";
-    padding-left: 2rem;
-    li {
-      padding-left: 0.5rem;
-    }
-  }
-`;
-
 export default function Service() {
-  const data = useStaticQuery(graphql`
-    query {
-      fileName: file(relativePath: { eq: "bunkers.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 250, quality: 80) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <ServiceStyles>
       <SiteBorderStyles className="flex flex-col">
@@ -126,9 +78,43 @@ export default function Service() {
           </div>
         </div>
       </SiteBorderStyles>
-      <div className="bg-img-wrapper">
-        <BackgroundImage />
+      <div className="bg-img-wrapper flex">
+        <BackgroundImage style={{width: `40vw`}} imgStyle={{height: `auto`}}/>
+        <BackgroundImage style={{width: `25vw`, transform: `translate(-1vw, 10vw)`}} imgStyle={{height: `auto`}}/>
+        <BackgroundImage style={{width: `10vw`, transform: `translate(5vw, 10vw)`}} imgStyle={{height: `auto`}}/>
       </div>
     </ServiceStyles>
   )
 }
+
+const ServiceStyles = styled.section`
+  position: relative;
+  .bg-img-wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: -200px;
+    z-index: -1;
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .icon-wrapper {
+    background-color: var(--lightgrey);
+    padding: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 10px;
+  }
+  svg, p {
+    color: var(--darkgrey);
+  }
+  ul {
+    list-style-type: "→";
+    padding-left: 2rem;
+    li {
+      padding-left: 0.5rem;
+    }
+  }
+`;
