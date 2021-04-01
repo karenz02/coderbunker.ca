@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from 'react';
 import PropTypes from "prop-types"
 import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -8,29 +8,13 @@ import styled from 'styled-components';
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import ButtonRed from "./button";
 import { FiLinkedin, FiGithub } from 'react-icons/fi';
-
-const HeaderStyles = styled.header`
-  border-bottom: 1px solid var(--lightgrey);
-  padding: 1rem 0;
-  position: fixed;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  z-index: 999;
-  .header-content {
-    display: grid;
-    grid-template-columns: auto 1fr;
-
-    ul {
-      margin-left: auto;
-    }
-  }
-  @media (min-width: 768px) {
-    .header-content {
-      grid-template-columns: 1fr auto 1fr;
-    }
-  }
-`;
+import { SiAircanada } from 'react-icons/si'
 export default function Header() {
+  const [isOn, setSwitcher] = useState(false);
+  const toggleSwitcher = () => {
+    setSwitcher(!isOn);
+  }
+
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "coderbunker-logo-black.png" }) {
@@ -66,18 +50,22 @@ export default function Header() {
               alt="Coderbunker Logo" />
           </Link>
 
+
           <ul className="flex items-center">
-            {/* language switcher */}
-            {languages.map((lng) => (
-              <li key={lng} className="text-xl mr-5">
-                <Link
-                  to={originalPath}
-                  language={lng}
-                >
-                  {lng.toUpperCase()}
-                </Link>
-              </li>
-            ))}
+            {/* Language Switcher */}
+            <li className={`flex items-center px-2 md:px-4 ${isOn ? "switched-on" : "switched-off"}`}>
+              <button onClick={toggleSwitcher} aria-label="Language Switcher" className="p-2 relative">
+                <SiAircanada className="text-2xl md:text-3xl"/>
+              </button>
+              {languages.map((lng) => (
+                <div key={lng} className={`text-lg md:text-xl p-2 ${isOn ? "block" : "hidden"}`}>
+                  <Link to={originalPath} language={lng}>
+                    {lng.toUpperCase()}
+                  </Link>
+                </div>
+              ))}
+            </li>
+
             <li>
               <ButtonRed href="/page-2/" />
             </li>
@@ -95,3 +83,30 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: `Coderbunker Canada`,
 }
+
+const HeaderStyles = styled.header`
+  border-bottom: 1px solid var(--lightgrey);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 999;
+  .header-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    ul {
+      margin-left: auto;
+    }
+  }
+  .switched-on {
+    background-color: var(--peach);
+    color: black;
+    transform: skew(-16deg);
+  }
+  @media (min-width: 768px) {
+    .header-content {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+`;

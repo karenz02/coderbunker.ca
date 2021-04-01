@@ -9,7 +9,6 @@ const ButtonStyle = styled.div`
     padding: 8px 24px;
     background-color: var(--red);
     color: var(--white);
-    font-weight: bold;
     transition: rotate 0.3s ease;
     letter-spacing: 1px;
     &:hover {
@@ -22,7 +21,7 @@ const ButtonStyle = styled.div`
 export default function ButtonRed({href}) {
   return (
     <ButtonStyle>
-      <Link to={href}>
+      <Link to={href} className="text-lg md:text-xl">
         <Trans>Retain Us</Trans>
       </Link>
     </ButtonStyle>
