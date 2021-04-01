@@ -5,8 +5,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
+
 import SiteBorderStyles from '../styles/SiteBorderStyles';
-import ButtonRed from "./button";
+import CallToAction from "./button";
 import { FiLinkedin, FiGithub } from 'react-icons/fi';
 import { SiAircanada } from 'react-icons/si'
 export default function Header() {
@@ -47,18 +48,19 @@ export default function Header() {
           <Link to="/">
             <Img
               fixed={data.file.childImageSharp.fixed}
+              style={{zIndex: `1`}}
               alt="Coderbunker Logo" />
           </Link>
 
 
           <ul className="flex items-center">
             {/* Language Switcher */}
-            <li className={`flex items-center px-2 md:px-4 ${isOn ? "switched-on" : "switched-off"}`}>
+            <li className={`flex items-center pr-2 md:px-4 ${isOn ? "switched-on" : "switched-off"}`}>
               <button onClick={toggleSwitcher} aria-label="Language Switcher" className="p-2 relative">
                 <SiAircanada className="text-2xl md:text-3xl"/>
               </button>
               {languages.map((lng) => (
-                <div key={lng} className={`text-lg md:text-xl p-2 ${isOn ? "block" : "hidden"}`}>
+                <div key={lng} className={`text-lg md:text-xl px-1 py-2 sm:p-2 ${isOn ? "block" : "hidden"}`}>
                   <Link to={originalPath} language={lng}>
                     {lng.toUpperCase()}
                   </Link>
@@ -67,7 +69,7 @@ export default function Header() {
             </li>
 
             <li>
-              <ButtonRed href="/page-2/" />
+              <CallToAction />
             </li>
           </ul>
         </div>
@@ -85,6 +87,7 @@ Header.defaultProps = {
 }
 
 const HeaderStyles = styled.header`
+  color: var(--darkgrey);
   border-bottom: 1px solid var(--lightgrey);
   padding: 1rem 0;
   position: fixed;
@@ -98,6 +101,9 @@ const HeaderStyles = styled.header`
     ul {
       margin-left: auto;
     }
+  }
+  a:hover, button:hover {
+    color: var(--black);
   }
   .switched-on {
     background-color: var(--peach);
