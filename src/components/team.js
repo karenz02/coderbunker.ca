@@ -1,11 +1,10 @@
 import * as React from "react"
-// import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-// import Img from 'gatsby-image';
 
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import BackgroundImage from "./bg-image";
+import Carousel from "./carousel";
 
 const TeamStyles = styled.section`
   position: relative;
@@ -15,22 +14,6 @@ const TeamStyles = styled.section`
     right: -50vw;
     width: 100%;
     z-index: -1;
-    
-  }
-  .card {
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.5);
-  }
-  svg, p {
-    color: var(--darkgrey);
-  }
-  ul {
-    list-style-type: "→";
-    padding-left: 2rem;
-    li {
-      padding-left: 0.5rem;
-    }
   }
 `;
 
@@ -49,10 +32,9 @@ export default function Team() {
           <p className="hidden md:block text-xl lg:text-2xl my-4">
             <Trans>We strive to raise the bar of technical expertise.</Trans>
           </p>
-        </div>  
-        <div className="card">
-          {/* TODO: Carousel */}
         </div>
+        {/* Carousel */}
+        <Carousel />
       </SiteBorderStyles>
       <div className="bg-img-wrapper">
         <BackgroundImage />
