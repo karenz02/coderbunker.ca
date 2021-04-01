@@ -47,7 +47,7 @@ export default function Hero() {
     query {
       fileName: file(relativePath: { eq: "coders.png" }) {
         childImageSharp {
-          fluid(maxWidth: 250, quality: 80) {
+          fluid(maxWidth: 250, quality: 90) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -58,10 +58,10 @@ export default function Hero() {
   return (
     <HeroStyles>
       <SiteBorderStyles>
-        <div className="hero flex items-center">
+        <div className="hero flex flex-col md:flex-row items-center">
           {/* Hero text */}
-          <div className="flex-1 flex flex-col justify-center items-start">
-            <h1 className="text-4xl leading-relaxed	mb-5">
+          <div className="flex-1 md:flex flex-col justify-center items-start">
+            <h1 className="text-3xl md:text-4xl leading-relaxed md:leading-12 mb-5">
               <span>
                 <Trans>Introducing Coderbunker in the </Trans>
               </span>
@@ -69,10 +69,12 @@ export default function Hero() {
                 <Trans>North</Trans>
               </span>
             </h1>
-            <p className="text-2xl mb-10">
+            <p className="text-2xl">
               <Trans>We empower freelancer community to excel in long term projects.</Trans>
             </p>
-            <div className="stats p-2 md:p-4 mb-10 flex">
+            {/* TODO: Insert Team Member Pics */}
+
+            {/* <div className="stats p-2 md:p-4 mb-10 flex">
               <div className="px-12">
                 <small className="uppercase">
                   <Trans># coders</Trans>
@@ -85,11 +87,11 @@ export default function Hero() {
                 </small>
                 <h3 className="text-2xl">3</h3>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Hero Image*/}
-          <div className="flex-1 hidden md:block m-8">
+          <div className="flex-1 md:p-16" style={{maxWidth: `60vw`, width: `100%`, overflow: `hidden`}}>
             <Img
               fluid={data.fileName.childImageSharp.fluid}
               alt="Coderbunker Coders" />
