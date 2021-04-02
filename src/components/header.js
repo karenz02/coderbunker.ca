@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 
 import SiteBorderStyles from '../styles/SiteBorderStyles';
-import CallToAction from "./button";
+import { CallToAction } from "./button";
 import { FiLinkedin, FiGithub } from 'react-icons/fi';
 import { SiAircanada } from 'react-icons/si'
 export default function Header() {
