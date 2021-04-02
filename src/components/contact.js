@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
@@ -7,59 +7,11 @@ import Img from 'gatsby-image';
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import Footer from "./footer";
 
-import { AiTwotoneMail, AiOutlineMail, AiTwotonePhone } from 'react-icons/ai';
-import { BsFillPersonFill } from 'react-icons/bs'
+import { AiTwotoneMail, AiTwotonePhone } from 'react-icons/ai';
 import { FiMapPin } from 'react-icons/fi'
-import { ButtonRed } from "./button";
+import ContactForm from "./contact-form";
 
 export default function Contact() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: ""
-  })
-
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  }
-
-  const handleChange = e => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value
-    })
-  }
-
-
-  const handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.formState })
-    })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
-
-    e.preventDefault();
-  }
-
-  const handleFocus = e => {
-    // TODO: fix android keyboard distortion on keyboard
-    const input = e.currentTarget;
-    const group = input.parentElement;
-    const label = group.firstChild;
-    label.classList.add("activated");
-    group.classList.add("focused");
-    input.addEventListener('blur', () => {
-      if (input.value === "") {
-        label.classList.remove("activated");
-      }
-      group.classList.remove("focused");
-    });
-  }
-
   const data = useStaticQuery(graphql`
     query {
       fileName: file(relativePath: { eq: "map.png" }) {
@@ -96,7 +48,7 @@ export default function Contact() {
             </a>
             <a href="mailto:info@coderbunker.ca" className="hidden md:flex flex-1 flex-col items-center p-4 text-md md:text-xl">
               <AiTwotoneMail className="text-3xl md:mb-4" />
-              info@coderbunker.ca
+              ca@coderbunker.com
             </a>
             <div href="#" className="hidden md:flex flex-1 flex-col items-center p-4 text-lg md:text-xl">
               <AiTwotonePhone className="text-3xl md:mb-4" />
@@ -105,57 +57,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <form
-            onSubmit={handleSubmit}
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            className="text-lg p-4 sm:p-8"
-          >
-            <div className="md:flex">
-              <div className="flex-1 form-group mb-2 md:mb-4 md:mr-4">
-                <label htmlFor="name">
-                  <Trans>Name</Trans>
-                </label>
-                <div className="icon-wrapper">
-                  <BsFillPersonFill />
-                </div>
-                <input
-                  type="text"
-                  name="name"
-                  onFocus={handleFocus}
-                  onChange={handleChange}
-                  value={formState.name}
-                />
-              </div>
-              <div className="flex-1 form-group mb-2 md:mb-4">
-                <label htmlFor="email">
-                  <Trans>Email</Trans>
-                </label>
-                <div className="icon-wrapper">
-                  <AiOutlineMail />
-                </div>
-                <input
-                  type="text"
-                  name="email"
-                  onFocus={handleFocus}
-                  onChange={handleChange}
-                  value={formState.email}
-                />
-              </div>
-            </div>
-            <textarea
-              name="message"
-              rows="3"
-              placeholder="Message"
-              className="mb-2 md:mb-4"
-              onChange={handleChange}
-              value={formState.message}
-            />
-            <input type="hidden" name="form-name" value="contact" />
-            <ButtonRed type="submit" text="Send" style={{ float: `right` }} />
-          </form>
+          <ContactForm />
         </div>
       </SiteBorderStyles>
       <Footer />
@@ -182,53 +84,5 @@ const ContactStyles = styled.section`
     left: 0;
     bottom: 5vh;
     z-index: -1;
-  }
-  form {
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.5);
-  }
-  .form-group {
-    display: flex;
-    align-items: center;
-    position: relative;
-    border: 1px solid var(--lightgrey);
-    label {
-      background: var(--white);
-      position: absolute;
-      left: 3rem;
-      color: var(--darkgrey);
-      transition: all 0.5s ease;
-    }
-    &.focused {
-      box-shadow: 0 0 10px rgba(255, 0 , 0 , 0.2);
-    }
-    label.activated {
-      transform: translate(-2rem, -1.5rem) scale(0.8);
-      color: var(--black);
-    }
-    .icon-wrapper {
-      width: 3rem;
-      height: 3rem;
-      display: grid;
-      place-content: center center;
-    }
-    input {
-      width: 100%;
-      padding: 0.5rem;
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-  textarea {
-    padding: 1rem;
-    border: 1px solid var(--lightgrey);
-    width: 100%;
-
-  }
-  textarea:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(255, 0 , 0 , 0.2);
   }
 `;
