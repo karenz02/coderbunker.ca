@@ -42,7 +42,7 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
             </div>
           </div>
 
-          <ul className="py-4 hidden md:block">
+          <ul className="py-4 hidden md:block" style={{height: `312px`}}>
             {person.highlights.map(hl => {
               return (
                 <li key={hl}>
@@ -53,7 +53,7 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
           </ul>
         </div>
       </div>
-      <ul className="py-4 block md:hidden">
+      <ul className="py-4 block md:hidden" style={{height: `312px`}}>
         {person.highlights.map((hl, i) => {
           return (
             <li key={hl + i}>
