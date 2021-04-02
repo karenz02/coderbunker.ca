@@ -92,7 +92,7 @@ const ServiceStyles = styled.section`
   .bg-img-wrapper {
     position: absolute;
     bottom: 5vw;
-    left: -200px;
+    left: -5vw;
     z-index: -1;
   }
   .card {

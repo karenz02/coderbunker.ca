@@ -1,5 +1,5 @@
 {
-  "Home": "Maison",
+  "Home": "Accueil",
   "Hi people": "Salut peeps",
   "Welcome to your new Gatsby site.": "Bienvenue a your new Gatsby site.",
   "Now go build something great.": "Maintenent go build something great.",
@@ -12,5 +12,15 @@
   "North": "Nord",
   "We empower freelancer community to excel in long term projects.": "Nous permettons à la communauté des pigistes d'exceller dans les projets à long terme.",
   "Trusted by these partners and clients": "Reconnu par ces partenaires et clients",
-  "Retain Us": "Embauchez-nous"
+  "Retain Us": "Embauchez-nous",
+  "Customize": "Personnalisez",
+  " Your Dev Team": " votre équipe de dév",
+  "Consult": "Consultez",
+  " Your Tech Lead": " votre responsable tech",
+  "Let's Get To ": "Mettons-nous au ",
+  "Work": "travail",
+  "Join": "Rejoignez",
+  " Our Community": " notre communauté",
+  "Connect": "Connectez-vous",
+  " With Us": " avec nous"
 }
