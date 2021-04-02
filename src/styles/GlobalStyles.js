@@ -40,6 +40,9 @@ const GlobalStyles = createGlobalStyle`
     height: 100vh;
     scroll-snap-align: start;
   }
+  button:focus, button:hover {
+    outline: none;
+  }
 `;
 
 export default GlobalStyles;

@@ -18,7 +18,7 @@ export default function Service() {
             <Trans> Your Dev Team</Trans>
           </h2>
           <p className="hidden md:block text-xl lg:text-2xl my-4">
-            <Trans>We fuel your tech capability with our network of freelancers</Trans>
+            <Trans>We fuel your tech capability with our network of freelancers.</Trans>
           </p>
         </div>
         {/* Cards */}
