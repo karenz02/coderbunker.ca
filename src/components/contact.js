@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
@@ -13,8 +13,41 @@ import { FiMapPin } from 'react-icons/fi'
 import { ButtonRed } from "./button";
 
 export default function Contact() {
-  const handleFocus = (ev) => {
-    const input = ev.currentTarget;
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: ""
+  })
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  const handleChange = e => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value
+    })
+  }
+
+
+  const handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.formState })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  }
+
+  const handleFocus = e => {
+    // TODO: fix android keyboard distortion on keyboard
+    const input = e.currentTarget;
     const group = input.parentElement;
     const label = group.firstChild;
     label.classList.add("activated");
@@ -45,7 +78,7 @@ export default function Contact() {
         {/* section-header */}
         <div className="text-left md:text-center py-4 md:py-12">
           <h2 className="text-3xl lg:text-4xl">
-            <span className="highlight-red">
+            <span className="highlight-red" style={{ whiteSpace: `nowrap` }}>
               <Trans>Connect</Trans>
             </span>
             <Trans> With Us</Trans>
@@ -57,7 +90,7 @@ export default function Contact() {
         <div style={{ maxWidth: `900px`, margin: `0 auto` }}>
           {/* Contact Info */}
           <div className="flex md:pb-12">
-            <a href="https://goo.gl/maps/Jx8ShmSyBMQUtPko8" className="flex-1 flex md:flex-col items-center md:text-center p-4 text-md md:text-xl">
+            <a href="https://goo.gl/maps/Jx8ShmSyBMQUtPko8" className="flex-1 flex md:flex-col items-center md:text-center p-2 md:p-4 text-md md:text-xl">
               <FiMapPin className="text-3xl m-2 md:mb-4" />
               <Trans>123 Sherbrooke Street, Quebec City, Quebec, Canada</Trans>
             </a>
@@ -72,7 +105,14 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <form name="contact" method="POST" data-netlify="true" className="text-lg p-4 sm:p-8">
+          <form
+            onSubmit={handleSubmit}
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            className="text-lg p-4 sm:p-8"
+          >
             <div className="md:flex">
               <div className="flex-1 form-group mb-2 md:mb-4 md:mr-4">
                 <label htmlFor="name">
@@ -81,7 +121,13 @@ export default function Contact() {
                 <div className="icon-wrapper">
                   <BsFillPersonFill />
                 </div>
-                <input type="text" name="name" onFocus={handleFocus}/>
+                <input
+                  type="text"
+                  name="name"
+                  onFocus={handleFocus}
+                  onChange={handleChange}
+                  value={formState.name}
+                />
               </div>
               <div className="flex-1 form-group mb-2 md:mb-4">
                 <label htmlFor="email">
@@ -90,12 +136,25 @@ export default function Contact() {
                 <div className="icon-wrapper">
                   <AiOutlineMail />
                 </div>
-                <input type="text" name="email" onFocus={handleFocus}/>
+                <input
+                  type="text"
+                  name="email"
+                  onFocus={handleFocus}
+                  onChange={handleChange}
+                  value={formState.email}
+                />
               </div>
             </div>
-            <textarea name="message" rows="3" placeholder="Message" className="mb-2 md:mb-4"/>
-            <ButtonRed type="submit" text="Send" style={{float: `right`}}/>
-              {/* <button type="submit">Send</button> */}
+            <textarea
+              name="message"
+              rows="3"
+              placeholder="Message"
+              className="mb-2 md:mb-4"
+              onChange={handleChange}
+              value={formState.message}
+            />
+            <input type="hidden" name="form-name" value="contact" />
+            <ButtonRed type="submit" text="Send" style={{ float: `right` }} />
           </form>
         </div>
       </SiteBorderStyles>
