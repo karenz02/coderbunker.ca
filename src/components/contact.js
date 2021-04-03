@@ -50,7 +50,7 @@ export default function Contact() {
               <AiTwotoneMail className="text-3xl md:mb-4" />
               ca@coderbunker.com
             </a>
-            <div href="#" className="hidden md:flex flex-1 flex-col items-center p-4 text-lg md:text-xl">
+            <div className="hidden md:flex flex-1 flex-col items-center p-4 text-lg md:text-xl">
               <AiTwotonePhone className="text-3xl md:mb-4" />
               +1 438-530-7111
             </div>

@@ -36,8 +36,8 @@ export default function Join() {
           </p>
         </div>  
         {/* hashtags */}
-        <div className="hash-tags" style={{maxwidth: `600px`}}>
-          <p className="text-lg lg:text-2xl md:my-4 md:pb-8 text-center">#SoftwareDevelopment #EmbeddedSystems #Blockchain #DigitalIdentity #PublicKeyInfrastructure #SystemAdministration #Cybersecurity #Encryption #Linux #FPGA #ARM #RISC-V #Ethereum #PGP #PostgreSQL #AWS #Azure #GoogleCloud #etc</p>
+        <div className="hash-tags" style={{maxWidth: `600px`, margin: `0 auto`}}>
+          <p className="text-lg lg:text-xl md:my-4 md:pb-8 text-center">#SoftwareDevelopment #EmbeddedSystems #Blockchain #DigitalIdentity #PublicKeyInfrastructure #SystemAdministration #Cybersecurity #Encryption #Linux #FPGA #ARM #RISC-V #Ethereum #PGP #PostgreSQL #AWS #Azure #GoogleCloud #etc</p>
           <Img fluid={data.fileName.childImageSharp.fluid}
                alt="Coder Coworking"
                style={{maxWidth: `70vw`, width: `500px`, margin: `0 auto`}}

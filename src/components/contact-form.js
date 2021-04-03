@@ -107,6 +107,7 @@ export default function ContactForm() {
             onFocus={handleFocus}
             onChange={handleChange}
             value={formState.name}
+            id="name"
           />
         </div>
         <div className="flex-1 form-group mb-2 md:mb-4">
@@ -122,6 +123,7 @@ export default function ContactForm() {
             onFocus={handleFocus}
             onChange={handleChange}
             value={formState.email}
+            id="email"
           />
         </div>
       </div>
@@ -160,7 +162,7 @@ const ContactFormStyles = styled.form`
       box-shadow: 0 0 10px rgba(255, 0 , 0 , 0.2);
     }
     label.activated {
-      transform: translate(-2rem, -1.5rem) scale(0.8);
+      transform: translate(-2rem, -1.5rem) scale(0.8, 0.8);
       color: var(--black);
     }
     .icon-wrapper {
@@ -189,12 +191,5 @@ const ContactFormStyles = styled.form`
   }
   textarea::placeholder {
     color: var(--darkgrey);
-  }
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active
-  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
   }
 `;
