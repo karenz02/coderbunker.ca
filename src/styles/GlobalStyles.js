@@ -17,7 +17,6 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     font-size: 16px;
-    scroll-snap-type: mandatory;
 	  scroll-snap-points-y: repeat(100vh);
 	  scroll-snap-type: y mandatory;
   }

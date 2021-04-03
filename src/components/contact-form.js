@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 
@@ -7,15 +7,21 @@ import { BsFillPersonFill } from 'react-icons/bs'
 import { ButtonRed } from "./button";
 
 export default function ContactForm() {
-  const initialHeight = window.innerHeight;
+  // Address android soft keyboard vh distortion
+  const [height, setHeight] = useState(0)
 
-  const setViewPortHeightToOriginal = () => {
+  useEffect(() => {
+    setHeight(window.innerHeight);
+  }, [])
+  const setVhToOriginal = () => {
     const viewport = document.querySelector(`meta[name=viewport]`);
-    if (window.innerHeight < initialHeight) {
+    if (window.innerHeight < height) {
       document.documentElement.style.setProperty("overflow", "auto")
-      viewport.setAttribute(`content`, `height=` + initialHeight + `px, width=device-width, initial-scale=1.0`)
+      viewport.setAttribute(`content`, `height=` + height + `px, width=device-width, initial-scale=1.0`)
     }
   }
+
+  // Form handling
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -47,20 +53,35 @@ export default function ContactForm() {
     e.preventDefault();
   }
 
+  // input and textarea focus & blue event: update styling & address UI issues on mobile
   const handleFocus = e => {
-    // TODO: fix android keyboard distortion on keyboard
-    setViewPortHeightToOriginal();
-    const input = e.currentTarget;
-    const group = input.parentElement;
-    const label = group.firstChild;
-    label.classList.add("activated");
-    group.classList.add("focused");
-    input.addEventListener('blur', () => {
-      if (input.value === "") {
-        label.classList.remove("activated");
-      }
-      group.classList.remove("focused");
-    });
+    setVhToOriginal();
+
+    // disable scroll snap
+    document.documentElement.style.setProperty("scroll-snap-type", "none")
+
+    const elem = e.currentTarget;
+    if (elem.nodeName === "INPUT") {
+      const group = elem.parentElement;
+      const label = group.firstChild;
+      label.classList.add("activated");
+      group.classList.add("focused");
+
+      elem.addEventListener('blur', () => {
+          // enable scroll snap
+        document.documentElement.style.setProperty("scroll-snap-type", "y mandatory")
+          group.classList.remove("focused");
+          if (elem.value === "") {
+            label.classList.remove("activated");
+          }
+      });
+    } else {
+        elem.addEventListener('blur', () => {
+        // enable scroll snap
+        document.documentElement.style.setProperty("scroll-snap-type", "y mandatory")
+      })
+    }
+
   }
 
   return (
@@ -109,6 +130,7 @@ export default function ContactForm() {
         rows="3"
         placeholder="Message"
         className="mb-2 md:mb-4"
+        onFocus={handleFocus}
         onChange={handleChange}
         value={formState.message}
       />
