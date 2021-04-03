@@ -2,12 +2,20 @@ import React, { useState } from "react"
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 
-
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonFill } from 'react-icons/bs'
 import { ButtonRed } from "./button";
 
 export default function ContactForm() {
+  const initialHeight = window.innerHeight;
+
+  const setViewPortHeightToOriginal = () => {
+    const viewport = document.querySelector(`meta[name=viewport]`);
+    if (window.innerHeight < initialHeight) {
+      document.documentElement.style.setProperty("overflow", "auto")
+      viewport.setAttribute(`content`, `height=` + initialHeight + `px, width=device-width, initial-scale=1.0`)
+    }
+  }
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -41,6 +49,7 @@ export default function ContactForm() {
 
   const handleFocus = e => {
     // TODO: fix android keyboard distortion on keyboard
+    setViewPortHeightToOriginal();
     const input = e.currentTarget;
     const group = input.parentElement;
     const label = group.firstChild;
