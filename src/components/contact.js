@@ -42,17 +42,17 @@ export default function Contact() {
         <div style={{ maxWidth: `900px`, margin: `0 auto` }}>
           {/* Contact Info */}
           <div className="flex md:pb-12">
-            <a href="https://goo.gl/maps/Jx8ShmSyBMQUtPko8" className="flex-1 flex md:flex-col items-center md:text-center p-2 md:p-4 text-md md:text-xl">
+            <div className="flex-1 flex md:flex-col items-center md:text-center p-2 md:p-4 text-md md:text-xl">
               <FiMapPin className="text-3xl m-2 md:mb-4" />
-              <Trans>123 Sherbrooke Street, Quebec City, Quebec, Canada</Trans>
-            </a>
+              <Trans>2-227 St-Paul, Quebec, QC, Canada G1K 3W3</Trans>
+            </div>
             <a href="mailto:info@coderbunker.ca" className="hidden md:flex flex-1 flex-col items-center p-4 text-md md:text-xl">
               <AiTwotoneMail className="text-3xl md:mb-4" />
               ca@coderbunker.com
             </a>
             <div href="#" className="hidden md:flex flex-1 flex-col items-center p-4 text-lg md:text-xl">
               <AiTwotonePhone className="text-3xl md:mb-4" />
-              +1 (418) 000-0000
+              +1 438-530-7111
             </div>
           </div>
 
