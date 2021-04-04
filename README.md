@@ -25,7 +25,7 @@ Staging: [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.a
 * Refer to this [issue](https://github.com/coderbunker/coderbunker.ca/issues/1)
 * Phase 2: To be envisioned
 
-## Documentation on Deployment 
+## How to deploy? 
 
 ### Production
 
@@ -52,3 +52,11 @@ or
 ```
 gatsby build --prefix-paths && gh-pages -d public -r git@github.com:coderbunker/coderbunker.ca.git
 ```
+
+## Structure of code
+
+
+## Team Content
+
+
+## Translation
