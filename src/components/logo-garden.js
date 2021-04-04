@@ -13,7 +13,7 @@ export default function LogoGarden() {
         node {
           base
           childImageSharp {
-            gatsbyImageData(width: 300, quality: 80, layout: CONSTRAINED)
+            gatsbyImageData(width: 150, quality: 80, layout: CONSTRAINED)
             id
           }
         }
@@ -30,6 +30,7 @@ export default function LogoGarden() {
         <div className="logos">
           {logos.map(({node}) => (
             <GatsbyImage
+              width={150}
               image={node.childImageSharp.gatsbyImageData}
               imgStyle={{ width: `auto`, height: `auto`, top: `50%`, left: `50%`, transform: `translate(-50%, -50%)`}}
               className="m-4"

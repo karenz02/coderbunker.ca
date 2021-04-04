@@ -13,7 +13,7 @@ export default function Carousel() {
       node {
         base
         childImageSharp {
-          gatsbyImageData(quality: 80, layout: FULL_WIDTH)
+          gatsbyImageData(width: 500, quality: 80, layout: FULL_WIDTH)
         }
         id
       }

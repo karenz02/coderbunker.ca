@@ -26,7 +26,8 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
           image={pic.node.childImageSharp.gatsbyImageData}
           className="w-1/3-vw h-1/3-vw md:w-1/3 md:h-auto"
           imgStyle={{objectPosition: `top center`}}
-          alt={pic.node.base.split('.')[0]} />
+          alt={pic.node.base.split('.')[0]}
+          width={500}/>
 
         <div className="p-4 md:p-8 w-2/3">
           <div className="flex flex-col md:flex-row justify-between h-full md:h-auto">
