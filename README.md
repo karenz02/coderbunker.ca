@@ -17,11 +17,15 @@ Staging: [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.a
 
 ## What was completed?
 
+* Wireframe (Phase 1): [figma](https://www.figma.com/proto/v1GDDcPMpdDOgRBmwTnDQo/CoderBunker?node-id=419%3A47&scaling=min-zoom&page-id=201%3A1183)
+* One-pager (Phase 1): [Pull Request](https://github.com/coderbunker/coderbunker.ca/pull/2)
 
 ## What still needs to be done?
 
+* Refer to this [issue](https://github.com/coderbunker/coderbunker.ca/issues/1)
+* Phase 2: To be envisioned
 
-## Documentation
+## Documentation on Deployment 
 
 ### Production
 
@@ -40,7 +44,7 @@ or
 ```
 gatsby build
 ```
-### Deploy to gh-pages
+### gh-pages
 ```
 npm run deploy
 ```
