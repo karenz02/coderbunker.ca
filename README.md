@@ -9,7 +9,7 @@ Staging: [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.a
 
 ## Framework
 
-* [Gatsby.js](https://www.gatsbyjs.com/)
+* [Gatsby](https://www.gatsbyjs.com/)
 * [i18next](https://github.com/microapps/gatsby-plugin-react-i18next)
 * [Tailwind CSS](https://tailwindcss.com/)
 * [styled-components](https://styled-components.com/)
