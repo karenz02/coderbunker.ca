@@ -2,13 +2,13 @@ import * as React from "react";
 import { graphql } from 'gatsby';
 import { Trans } from "gatsby-plugin-react-i18next";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import SiteBorderStyles from "../styles/SiteBorderStyles";
 
 export default function NotFoundPage() {
   return (
     <Layout>
-      <SEO title="404" />
+      <Seo title="404" />
       <SiteBorderStyles>
         <section>
           <div className="text-left md:text-center py-4 md:pt-16 md:pb-8 lg:pt-24 md:pb-8">

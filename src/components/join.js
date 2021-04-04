@@ -1,25 +1,12 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { StaticImage } from "gatsby-plugin-image";
 
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import BackgroundImage from "./bg-image";
 
 export default function Join() {
-  const data = useStaticQuery(graphql`
-    query {
-      fileName: file(relativePath: { eq: "cowork.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 500, quality: 80) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <JoinStyles>
       <SiteBorderStyles className="flex flex-col">
@@ -36,12 +23,14 @@ export default function Join() {
           </p>
         </div>  
         {/* hashtags */}
-        <div className="hash-tags" style={{maxWidth: `600px`, margin: `0 auto`}}>
+        <div className="hash-tags" style={{maxWidth: `800px`, margin: `0 auto`}}>
           <p className="text-lg lg:text-xl md:my-4 md:pb-8 text-center">#SoftwareDevelopment #EmbeddedSystems #Blockchain #DigitalIdentity #PublicKeyInfrastructure #SystemAdministration #Cybersecurity #Encryption #Linux #FPGA #ARM #RISC-V #Ethereum #PGP #PostgreSQL #AWS #Azure #GoogleCloud #etc</p>
-          <Img fluid={data.fileName.childImageSharp.fluid}
-               alt="Coder Coworking"
-               style={{maxWidth: `70vw`, width: `500px`, margin: `0 auto`}}
-               imgStyle={{padding: `2rem`}}/>
+          <div style={{maxWidth: `70vw`, width: `500px`, margin: `0 auto`, padding: `2rem`}}>
+            <StaticImage
+              src="../assets/images/coders.png"
+              alt="Coderbunker Coders Coworking"
+            />
+          </div>
         </div>
       </SiteBorderStyles>
       <div className="bg-img-wrapper flex">
@@ -50,7 +39,7 @@ export default function Join() {
         <BackgroundImage style={{width: `10vw`, transform: `translate(5vw, 10vw)`}} imgStyle={{height: `auto`}}/>
       </div>
     </JoinStyles>
-  )
+  );
 }
 
 const JoinStyles = styled.section`

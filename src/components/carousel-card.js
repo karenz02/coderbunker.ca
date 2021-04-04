@@ -2,7 +2,7 @@ import * as React from "react";
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { FiLinkedin, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import team from '../assets/content/team.json';
 
 export default function CarouselCard({pic, index, count, activeIndex, setActiveIndex}) {
@@ -22,10 +22,10 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
   return (
     <CarouselCardStyles className={`${activeIndex === index ? "active" : ""}`}>
       <div className="flex md:flex-row-reverse overflow-hidden bg-peach md:bg-white">
-        <Img
+        <GatsbyImage
+          image={pic.node.childImageSharp.gatsbyImageData}
           className="w-1/3-vw h-1/3-vw md:w-1/3 md:h-auto"
           imgStyle={{objectPosition: `top center`}}
-          fluid={pic.node.childImageSharp.fluid}
           alt={pic.node.base.split('.')[0]} />
 
         <div className="p-4 md:p-8 w-2/3">
@@ -72,7 +72,7 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
         </button>
       </div>
     </CarouselCardStyles>
-  )
+  );
 }
 
 const CarouselCardStyles = styled.div`

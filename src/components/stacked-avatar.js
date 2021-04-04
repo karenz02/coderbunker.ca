@@ -1,29 +1,23 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function StackedAvatar() {
   // query all team pics
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: { absolutePath: { regex: "/team/" } }
-        sort: { fields: base }
-      ) {
-        edges {
-          node {
-            base
-            childImageSharp {
-              fixed(width: 200) {
-                ...GatsbyImageSharpFixed
-              }
-              id
-            }
+  const data = useStaticQuery(graphql`{
+    allFile(filter: {absolutePath: {regex: "/team/"}}, sort: {fields: base}) {
+      edges {
+        node {
+          base
+          childImageSharp {
+            gatsbyImageData(width: 75, layout: FIXED)
+            id
           }
         }
       }
     }
-  `);
+  }`);
+
   const pics = data.allFile.edges;
   return (
     <div className="py-8">
@@ -31,15 +25,15 @@ export default function StackedAvatar() {
         const zIndex = pics.length - i;
         const translateX = i * -30;
         return (
-          <Img
+          <GatsbyImage
+            image={pic.node.childImageSharp.gatsbyImageData}
             className="inline-block rounded-full"
-            fixed={pic.node.childImageSharp.fixed}
             style={{width: `75px`, height: `75px`, zIndex: `${zIndex}`, border: `1px solid var(--white)`, transform: `translateX(${translateX}%)`}}
             imgStyle={{objectPosition: `top center`}}
             key={pic.node.childImageSharp.id}
-          />
-        )
+            alt="pic.node.base.split('.')[0]" />
+        );
       })}
     </div>
-  )
+  );
 }

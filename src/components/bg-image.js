@@ -1,26 +1,22 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function BackgroundImage({style, imgStyle}) {
-  const data = useStaticQuery(graphql`
-    query {
-      fileName: file(relativePath: { eq: "bunker.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 250, quality: 80) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+  const data = useStaticQuery(graphql`{
+  fileName: file(relativePath: {eq: "bunker.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 1000, quality: 80, layout: CONSTRAINED)
     }
-  `);
+  }
+}
+`);
 
-  return (
-    <>
-      <Img fluid={data.fileName.childImageSharp.fluid}
-           style={style}
-           imgStyle={imgStyle}
-           alt="Coderbunker background image"/>
-    </>
-  )
+  return <>
+    <GatsbyImage
+      image={data.fileName.childImageSharp.gatsbyImageData}
+      style={style}
+      imgStyle={imgStyle}
+      alt="Coderbunker background image" />
+  </>;
 }

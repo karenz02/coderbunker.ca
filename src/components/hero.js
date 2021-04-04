@@ -1,26 +1,13 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { StaticImage } from "gatsby-plugin-image";
 
 import LogoGarden from '../components/logo-garden';
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import StackedAvatar from "./stacked-avatar";
 
 export default function Hero() {
-  const data = useStaticQuery(graphql`
-    query {
-      fileName: file(relativePath: { eq: "coders.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 250, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <HeroStyles>
       <SiteBorderStyles>
@@ -59,9 +46,7 @@ export default function Hero() {
 
           {/* Hero Image*/}
           <div className="flex-1 hidden md:block p-16">
-            <Img
-              fluid={data.fileName.childImageSharp.fluid}
-              alt="Coderbunker Coders" />
+            <StaticImage src="../assets/images/coders.png"  alt="Coderbunker Coders"/>
           </div>
         </div>
 
@@ -70,7 +55,7 @@ export default function Hero() {
       <LogoGarden />
       <div className="quarter-circle-bottom-left" />
     </HeroStyles>
-  )
+  );
 }
 
 const HeroStyles = styled.section`

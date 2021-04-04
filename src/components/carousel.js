@@ -7,26 +7,20 @@ export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // query all team pics
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: { absolutePath: { regex: "/team/" } }
-        sort: { fields: base }
-      ) {
-        edges {
-          node {
-            base
-            childImageSharp {
-              fluid(maxWidth: 1024, quality: 80) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-            id
-          }
+  const data = useStaticQuery(graphql`{
+  allFile(filter: {absolutePath: {regex: "/team/"}}, sort: {fields: base}) {
+    edges {
+      node {
+        base
+        childImageSharp {
+          gatsbyImageData(quality: 80, layout: FULL_WIDTH)
         }
+        id
       }
     }
-  `);
+  }
+}
+`);
   const pics = data.allFile.edges;
   return (
     <>

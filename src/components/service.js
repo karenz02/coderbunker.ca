@@ -79,7 +79,7 @@ export default function Service() {
         </div>
       </SiteBorderStyles>
       <div className="bg-img-wrapper flex">
-        <BackgroundImage style={{width: `40vw`}} imgStyle={{height: `auto`}}/>
+        <BackgroundImage style={{width: `40vw`}} imgStyle={{height: `100%`}}/>
         <BackgroundImage style={{width: `25vw`, transform: `translate(-1vw, 10vw)`}} imgStyle={{height: `auto`}}/>
         <BackgroundImage style={{width: `10vw`, transform: `translate(5vw, 10vw)`}} imgStyle={{height: `auto`}}/>
       </div>

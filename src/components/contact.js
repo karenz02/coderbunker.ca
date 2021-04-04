@@ -1,8 +1,7 @@
 import React from "react"
-import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { StaticImage } from "gatsby-plugin-image";
 
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import Footer from "./footer";
@@ -12,18 +11,6 @@ import { FiMapPin } from 'react-icons/fi'
 import ContactForm from "./contact-form";
 
 export default function Contact() {
-  const data = useStaticQuery(graphql`
-    query {
-      fileName: file(relativePath: { eq: "map.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000, quality: 80) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <ContactStyles>
       <SiteBorderStyles>
@@ -61,14 +48,17 @@ export default function Contact() {
         </div>
       </SiteBorderStyles>
       <Footer />
-      <div className="bg-img-wrapper">
-        <Img
-          style={{ width: `50vw`, minWidth: `300px` }}
-          fluid={data.fileName.childImageSharp.fluid}
-          alt="Coderbunker Coders" />
+      <div
+        className="absolute" 
+        style={{zIndex: `-1`, width: `50vw`, left: `0`, bottom: `5vh`}}>
+        <StaticImage
+          src="../assets/images/map.png"
+          width={1000}
+          alt="Map outline of Canada"
+        />
       </div>
     </ContactStyles>
-  )
+  );
 }
 
 const ContactStyles = styled.section`
@@ -78,11 +68,5 @@ const ContactStyles = styled.section`
   justify-content: space-between;
   p, svg {
     color: var(--darkgrey);
-  }
-  .bg-img-wrapper {
-    position: absolute;
-    left: 0;
-    bottom: 5vh;
-    z-index: -1;
   }
 `;

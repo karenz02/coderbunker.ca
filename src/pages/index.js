@@ -2,7 +2,7 @@ import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Hero from "../components/hero";
 import Service from "../components/service";
 import Team from "../components/team";
@@ -14,7 +14,7 @@ export default function IndexPage() {
   const {t} = useTranslation();
   return (
     <Layout>
-      <SEO title={t('Home')} />
+      <Seo title={t('Home')} />
       <Hero />
       <Service />
       <Team />

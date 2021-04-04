@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types"
 import { Link, useI18next } from 'gatsby-plugin-react-i18next';
-import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { StaticImage } from "gatsby-plugin-image";
 import styled from 'styled-components';
 
 
@@ -15,18 +14,6 @@ export default function Header() {
   const toggleSwitcher = () => {
     setSwitcher(!isOn);
   }
-
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "coderbunker-logo-black.png" }) {
-        childImageSharp {
-          fixed(width: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `);
 
   const { languages, originalPath } = useI18next();
   return (
@@ -46,10 +33,11 @@ export default function Header() {
           {/* logo */}
           {/* TODO: center logo */}
           <Link to="/">
-            <Img
-              fixed={data.file.childImageSharp.fixed}
-              style={{zIndex: `1`}}
-              alt="Coderbunker Logo" />
+            <StaticImage
+              src="../assets/images/coderbunker-logo-black.png"
+              alt="Coderbunker Logo"
+              width={50}
+            />
           </Link>
 
 
