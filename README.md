@@ -44,6 +44,10 @@ Changes can be seen 👉 [coderbunker-staging.netlify.app](https://coderbunker-s
 ### Pre-staging (gh-pages)
 
 Note that Netlify has limits on build minutes.  Go with gh-pages first.
+
+Changes can be seen 👉 [coderbunker.github.io/coderbunker.ca](https://coderbunker.github.io/coderbunker.ca/)
+
+
 ```
 gatsby clean
 npm run deploy
