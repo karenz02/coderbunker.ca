@@ -34,6 +34,7 @@ export default function Header() {
           {/* TODO: center logo */}
           <Link to="/">
             <StaticImage
+              placeholder="blurred"
               src="../assets/images/coderbunker-logo-black.png"
               alt="Coderbunker Logo"
               width={50}

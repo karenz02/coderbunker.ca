@@ -6,7 +6,11 @@ export default function BackgroundImage({style, imgStyle}) {
   const data = useStaticQuery(graphql`{
   fileName: file(relativePath: {eq: "bunker.png"}) {
     childImageSharp {
-      gatsbyImageData(width: 1000, quality: 80, layout: CONSTRAINED)
+      gatsbyImageData(
+        width: 1000,
+        placeholder: BLURRED
+        layout: CONSTRAINED
+      )
     }
   }
 }

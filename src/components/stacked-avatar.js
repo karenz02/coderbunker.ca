@@ -10,7 +10,11 @@ export default function StackedAvatar() {
         node {
           base
           childImageSharp {
-            gatsbyImageData(width: 75, layout: FIXED)
+            gatsbyImageData(
+              width: 75,
+              placeholder: BLURRED,
+              layout: FIXED
+            )
             id
           }
         }
