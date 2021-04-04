@@ -6,12 +6,35 @@ module.exports = {
       white: {
         DEFAULT: '#FFFFFF',
       },
+      red: {
+        light: '#FFE0E1',
+        DEFAULT: '#ff0000',
+      },
+      black: {
+        DEFAULT: '#2E2E2E',
+      },
+      grey: {
+        dark: '#747474',
+        light: '#EEEEEE',
+      },
+      peach: {
+        DEFAULT: '#FCF5E8',
+      }
     },
     extend: {
       margin: {
         '-half-screen': '50vw',
         '-half-width': '50%',
       },
+      lineHeight: {
+        '12': '3rem',
+      },
+      width: {
+        '1/3-vw': '33vw',
+      },
+      height: {
+        '1/3-vw': '33vw',
+      }
     },
   },
   variants: {

@@ -1,5 +1,5 @@
 {
-  "Home": "Maison",
+  "Home": "Accueil",
   "Hi people": "Salut peeps",
   "Welcome to your new Gatsby site.": "Bienvenue a your new Gatsby site.",
   "Now go build something great.": "Maintenent go build something great.",
@@ -7,5 +7,22 @@
   "Page two": "Page deux",
   "Hi from the second page": "Salut de page deux",
   "Welcome to page 2": "Bienvenue a page deux",
-  "Go back to the homepage": "Retour a Maison"
+  "Go back to the homepage": "Retour a Maison",
+  "Introducing Coderbunker in the ": "Présentation de Coderbunker dans le ",
+  "North": "Nord",
+  "We empower freelancer community to excel in long term projects.": "Nous permettons à la communauté des pigistes d'exceller dans les projets à long terme.",
+  "Trusted by these partners and clients": "Reconnu par ces partenaires et clients",
+  "Retain Us": "Embauchez-nous",
+  "Customize": "Personnalisez",
+  " Your Dev Team": " votre équipe de dév",
+  "Consult": "Consultez",
+  " Your Tech Lead": " votre responsable tech",
+  "Let's Get To ": "Mettons-nous au ",
+  "Work": "travail",
+  "Join": "Rejoignez",
+  " Our Community": " notre communauté",
+  "Connect": "Connectez-vous",
+  " With Us": " avec nous",
+  "We fuel your tech capability with our network of freelancers.": "Nous alimentons votre capacité technologique avec notre réseau de pigistes.",
+  "25 years experience in software development": "25 ans d'expérience dans le développement de logiciels"
 }

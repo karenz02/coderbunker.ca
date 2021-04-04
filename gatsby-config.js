@@ -6,18 +6,16 @@ module.exports = {
     description: `Coderbunker Canada Website`, 
   },
   plugins: [
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
       },
-      __key: "images",
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -26,6 +24,24 @@ module.exports = {
         name: `locale`
       }
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/assets/images/coderbunker-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-gatsby-cloud`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
@@ -35,7 +51,6 @@ module.exports = {
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: `https://example.com/`,
         // you can pass any i18next options
-        // pass following options to allow message content as a key
         i18nextOptions: {
           interpolation: {
             escapeValue: false // not needed for react as it escapes by default
@@ -43,13 +58,8 @@ module.exports = {
           keySeparator: false,
           nsSeparator: false
         },
-        pages: [
-          {
-            matchPath: '/preview',
-            languages: ['en']
-          }
-        ]
+        pages: []
       }
     }
   ],
-};
+}

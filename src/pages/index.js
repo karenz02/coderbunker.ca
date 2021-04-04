@@ -1,31 +1,29 @@
 import * as React from "react"
-import {Link, Trans, useTranslation} from 'gatsby-plugin-react-i18next';
-
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { graphql } from 'gatsby';
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
+import Hero from "../components/hero";
+import Service from "../components/service";
+import Team from "../components/team";
+import Steps from "../components/steps";
+import Join from "../components/join";
+import Contact from "../components/contact";
 
-const IndexPage = () => {
+export default function IndexPage() {
   const {t} = useTranslation();
   return (
     <Layout>
-      <SEO title={t('Page two')} />
-      <h1>
-        <Trans>Hi people</Trans>
-      </h1>
-      <p>
-        <Trans>Welcome to your new Gatsby site.</Trans>
-      </p>
-      <p>
-        <Trans>Now go build something great.</Trans>
-      </p>
-      <Link to="/page-2/">
-        <Trans>Go to page 2</Trans>
-      </Link>
+      <Seo title={t('Home')} />
+      <Hero />
+      <Service />
+      <Team />
+      <Steps />
+      <Join />
+      <Contact />
     </Layout>
   );
 };
-
-export default IndexPage;
 
 export const query = graphql`
   query($language: String!) {
