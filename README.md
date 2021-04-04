@@ -37,7 +37,7 @@ To be added to Netlify, contact carmenhyng89@gmail.com
 
 ### Staging (Netlify)
 
-Continuous Deployment of the staging branch on Netlify (similar to above with the **staging** branch) 
+Continuous Deployment of the staging branch on Netlify (similar to above, but with the **staging** branch) 
 
 Changes can be seen 👉 [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.app/)
 
