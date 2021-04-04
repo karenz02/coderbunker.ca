@@ -29,12 +29,17 @@ Staging: [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.a
 
 ### Production
 
-Continuous Deployment on Netlify of the main branch of this repo (i.e. everytime code got merged onto the **main** branch, it will trigger a rebuild on Netlify. Changes can be seen at [coderbunker.ca](https://coderbunker.ca/)
+Continuous Deployment on Netlify of the main branch of this repo (i.e. everytime code got merged onto the **main** branch, it will trigger a rebuild on Netlify. 
+
+Changes can be seen 👉 [coderbunker.ca](https://coderbunker.ca/)
+
 To be added to Netlify, contact carmenhyng89@gmail.com
 
 ### Staging
 
-Continuous Deployment of the staging branch on Netlify (similar to above with the **staging** branch) Changes can be seen at [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.app/)
+Continuous Deployment of the staging branch on Netlify (similar to above with the **staging** branch) 
+
+Changes can be seen 👉 [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.app/)
 
 ### Build
 ```
