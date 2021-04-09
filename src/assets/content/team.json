@@ -18,12 +18,17 @@
     },
     {
       "name": "Jérémy Viau-Trudel",
-      "title": "Some Title",
-      "linkedin": "https://www.linkedin.com/",
-      "github": "https://github.com/",
+      "title": "System administrator",
+      "linkedin": "https://www.linkedin.com/in/jvtrudel/",
+      "github": "https://github.com/jvtrudel",
       "image": "002_jeremy_viau_trudel.jpg",
       "highlights": [
-        "Some hightlight"
+        "Background in university research (quantum chemistry, attosecond science)",
+        "5 years of experience in software development",
+        "Prototyping, agility, design, R&D",
+        "Python, Bash, Javascript, C/C++, Fortran",
+        "Devops (Linux, Ansible, Cloud, Docker)",
+        "Data analysis"      
       ]
     }
   ]
