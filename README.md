@@ -70,6 +70,37 @@ gatsby build
 ## Structure of code
 
 
+
+```
+coderbunker
+├── locales 
+│   ├── en
+│   │   └── translation.json // 👈 add EN string here
+│   └── fr
+│       └── translation.json // 👈 add FR string here
+├── src
+│   ├── assets
+│   │   ├── content
+│   │   │   └── team.json // 👈 add team member info here
+│   │   ├── fonts
+│   │   ├── images
+│   │   │   └── team // 👈 add team member image here
+│   │   │       ├── 001_ricky_ng_adam.jpg
+│   │   │       └── 002_etc...
+│   │   └── pdfs // 👈 add the Retainer Agreement here
+│   ├── components
+│   │   ├── button.js
+│   │   └── // reusable components, etc...
+│   ├── pages
+│   │   ├── 404.js
+│   │   └── index.js
+│   ├── pdfs
+│   │   └── placeholder.pdf
+│   └── styles
+└── gatsby-browser.js
+
+```
+
 ## Team Content
 
 
