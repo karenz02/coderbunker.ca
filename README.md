@@ -33,7 +33,7 @@ Continuous Deployment on Netlify of the main branch of this repo (i.e. everytime
 
 Changes can be seen 👉 [coderbunker.ca](https://coderbunker.ca/)
 
-To be added to Netlify, contact carmenhyng89@gmail.com
+To be added to Netlify, contact carms.ng@technolibre.ca
 
 ### Staging (Netlify)
 
