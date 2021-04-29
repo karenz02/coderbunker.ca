@@ -69,39 +69,88 @@ gatsby build
 
 ## Structure of code
 
-
-
 ```
 coderbunker
 ├── locales 
-│   ├── en
-│   │   └── translation.json // 👈 add EN string here
-│   └── fr
-│       └── translation.json // 👈 add FR string here
 ├── src
 │   ├── assets
 │   │   ├── content
-│   │   │   └── team.json // 👈 add team member info here
 │   │   ├── fonts
 │   │   ├── images
 │   │   │   └── team // 👈 add team member image here
-│   │   │       ├── 001_ricky_ng_adam.jpg
-│   │   │       └── 002_etc...
 │   │   └── pdfs // 👈 add the Retainer Agreement here
 │   ├── components
 │   │   ├── button.js
-│   │   └── // reusable components, etc...
+│   │   └── //  👈 add reusable components, etc...
 │   ├── pages
 │   │   ├── 404.js
 │   │   └── index.js
 │   ├── pdfs
 │   │   └── placeholder.pdf
 │   └── styles
-└── gatsby-browser.js
+├── gatsby-browser.js
+├── gatsvy-config.js
+├── gatsby-node.js
+├── gatsby-ssr.js
+├── postcss.config.js
+└── tailwind.config.js
 
 ```
 
 ## Team Content
 
+#### Add a team member
+
+1. Add an image in the `team` folder. 
+
+   - Name the images following the format starting with `002`
+   - it will be displayed as part of the stacked avatar and the team carousel if included in the team.json.
+
+```
+├── src
+    ├── assets
+        ├── content
+        │   └── team.json // 👈 add team member info here
+        ├── images
+            └── team // 👈 add team member image here
+                ├── 001_ricky_ng_adam.jpg
+                └── 002_etc...
+```
+
+2. Add a slide to the team carousel
+
+```
+{
+  "content": [
+    {
+      "name": "Ricky Ng-Adam",
+      "title": "Founder, CoderBunker",
+      "linkedin": "https://www.linkedin.com/in/rngadam/",
+      "github": "https://github.com/rngadam",
+      "image": "001_ricky_ng_adam.jpg", // 👈 reference the image in the `team` folder
+      "highlights": [ // 👈 optimal length <= 7
+        "25 years experience in software development",
+        "Architecture, design, R&D",
+        "Team recruitment, building and coaching",
+        "Javascript, Python, C/C++, bash, plpgsql",
+        "API: REST, Websockets, GraphQL",
+        "Deployment (Linux, Ansible, Cloud, Docker)",
+        "Database (PostgreSQL)"
+      ]
+    },
+    { ...next member }
+  ]
+}
+```
 
 ## Translation
+
+#### add/remove translation strings
+
+```
+├── locales 
+    ├── en
+    │   └── translation.json // 👈 add EN string here
+    └── fr
+        └── translation.json // 👈 add FR string here
+```
