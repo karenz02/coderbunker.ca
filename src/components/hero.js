@@ -46,7 +46,7 @@ export default function Hero() {
 
           {/* Hero Image*/}
           <div className="flex-1 hidden md:block p-16">
-            <StaticImage src="../assets/images/coders.png"  alt="Coderbunker Coders"/>
+            <StaticImage placeholder="blurred" src="../assets/images/coders.png"  alt="Coderbunker Coders"/>
           </div>
         </div>
 

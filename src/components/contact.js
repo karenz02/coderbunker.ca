@@ -52,6 +52,7 @@ export default function Contact() {
         className="absolute" 
         style={{zIndex: `-1`, width: `50vw`, left: `0`, bottom: `5vh`}}>
         <StaticImage
+          placeholder="blurred"
           src="../assets/images/map.png"
           width={1000}
           alt="Map outline of Canada"

@@ -27,6 +27,7 @@ export default function Join() {
           <p className="text-lg lg:text-xl md:my-4 md:pb-8 text-center">#SoftwareDevelopment #EmbeddedSystems #Blockchain #DigitalIdentity #PublicKeyInfrastructure #SystemAdministration #Cybersecurity #Encryption #Linux #FPGA #ARM #RISC-V #Ethereum #PGP #PostgreSQL #AWS #Azure #GoogleCloud #etc</p>
           <div style={{maxWidth: `70vw`, width: `500px`, margin: `0 auto`, padding: `2rem`}}>
             <StaticImage
+              placeholder="blurred"
               src="../assets/images/coders.png"
               alt="Coderbunker Coders Coworking"
             />

@@ -13,7 +13,11 @@ export default function LogoGarden() {
         node {
           base
           childImageSharp {
-            gatsbyImageData(width: 150, quality: 80, layout: CONSTRAINED)
+            gatsbyImageData(
+              width: 150,
+              placeholder: BLURRED,
+              layout: CONSTRAINED
+            )
             id
           }
         }
