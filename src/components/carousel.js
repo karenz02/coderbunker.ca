@@ -16,7 +16,7 @@ export default function Carousel() {
           gatsbyImageData(
             width: 500,
             placeholder: BLURRED,
-            layout: FULL_WIDTH
+            layout: CONSTRAINED
           )
         }
         id
