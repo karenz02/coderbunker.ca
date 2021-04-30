@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
@@ -10,7 +10,15 @@ import Steps from "../components/steps";
 import Join from "../components/join";
 import Contact from "../components/contact";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function IndexPage() {
+  useEffect(() => {
+    // initialize Animation on Scroll
+    AOS.init();
+  });
+
   const {t} = useTranslation();
   return (
     <Layout>

@@ -24,7 +24,7 @@ export default function Service() {
         {/* Cards */}
         <div className="flex-grow flex flex-col md:flex-row">
           {/* Card */}
-          <div className="card my-2 md:m-6 lg:m-12 p-4 md:p-8 flex-1">
+          <div className="card my-2 md:m-6 lg:m-12 p-4 md:p-8 flex-1" data-aos="fade-right" data-aos-delay="200">
             <div className="card-header flex items-center text-xl lg:text-2xl">
               <div className="icon-wrapper">
                 <FaCube />
@@ -55,7 +55,7 @@ export default function Service() {
             </ul>
           </div>
           {/* Card */}
-          <div className="card my-2 md:m-6 lg:m-12 p-4 md:p-8 flex-1">
+          <div className="card my-2 md:m-6 lg:m-12 p-4 md:p-8 flex-1" data-aos="fade-up" data-aos-delay="200">
             <div className="card-header flex items-center text-xl lg:text-2xl">
               <div className="icon-wrapper">
                 <FaChalkboardTeacher />
