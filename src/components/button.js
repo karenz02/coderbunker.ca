@@ -13,10 +13,10 @@ function CallToAction() {
   )
 }
 
-function ButtonRed({ type, text, className, style }) {
+function ButtonRed({ type, text, className, style, dataAos, dataAosDelay }) {
   return (
     <ButtonStyle>
-      <button type={type} className={`px-4 md:px-6 py-2 text-lg md:text-xl ${className ? className : ""}`} style={style}>{text}</button>
+      <button data-aos={dataAos} data-aos-delay={dataAosDelay} type={type} className={`px-4 md:px-6 py-2 text-lg md:text-xl ${className ? className : ""}`} style={style}>{text}</button>
     </ButtonStyle>
   )
 }
