@@ -33,7 +33,8 @@ export default function StackedAvatar() {
             key={pic.node.childImageSharp.id}
             alt="pic.node.base.split('.')[0]" />
         );
-      })}
+      }).slice(0, 7)}
+      {/* TODO: handle representation for members with count above 7 */}
     </div>
   );
 }
