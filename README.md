@@ -77,7 +77,7 @@ coderbunker
 │   │   ├── content
 │   │   ├── fonts
 │   │   ├── images
-│   │   │   └── team // 👈 add team member image here
+│   │   │   └── portraits // 👈 add team member image here
 │   │   └── pdfs // 👈 add the Retainer Agreement here
 │   ├── components
 │   │   ├── button.js
@@ -112,7 +112,7 @@ coderbunker
         ├── content
         │   └── team.json // 👈 add team member info here
         ├── images
-            └── team // 👈 add team member image here
+            └── portraits // 👈 add team member image here
                 ├── 001_ricky_ng_adam.jpg
                 └── 002_etc...
 ```
@@ -149,8 +149,7 @@ coderbunker
 
 ```
 ├── locales 
-    ├── en
-    │   └── translation.json // 👈 add EN string here
     └── fr
-        └── translation.json // 👈 add FR string here
+        ├── team.json // 👈 add FR string specific to the team member info
+        └── index.json // 👈 add the rest of the FR string
 ```
