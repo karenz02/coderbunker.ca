@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 
 import { AiOutlineMail } from 'react-icons/ai';
@@ -81,8 +81,9 @@ export default function ContactForm() {
         document.documentElement.style.setProperty("scroll-snap-type", "y mandatory")
       })
     }
-
   }
+
+  const {t} = useTranslation();
 
   return (
     <ContactFormStyles
@@ -130,14 +131,14 @@ export default function ContactForm() {
       <textarea
         name="message"
         rows="3"
-        placeholder="Message"
+        placeholder={t('Message')}
         className="mb-2 md:mb-4"
         onFocus={handleFocus}
         onChange={handleChange}
         value={formState.message}
       />
       <input type="hidden" name="form-name" value="contact" />
-      <ButtonRed dataAos="fade-right" dataAosDelay="200" type="submit" text="Send" style={{ float: `right` }} />
+      <ButtonRed dataAos="fade-right" dataAosDelay="200" type="submit" text={t('Send')} style={{ float: `right` }} />
     </ContactFormStyles>
   )
 }

@@ -5,7 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 export default function StackedAvatar() {
   // query all team pics
   const data = useStaticQuery(graphql`{
-    allFile(filter: {absolutePath: {regex: "/team/"}}, sort: {fields: base}) {
+    allFile(filter: {absolutePath: {regex: "/portraits/"}}, sort: {fields: base}) {
       edges {
         node {
           base
