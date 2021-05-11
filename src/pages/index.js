@@ -35,7 +35,7 @@ export default function IndexPage() {
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {ns: {in: ["index", "team"]}, language: {eq: $language}}) {
+    locales: allLocale(filter: {ns: {in: ["index", "team.fr"]}, language: {eq: $language}}) {
       edges {
         node {
           ns
