@@ -35,7 +35,7 @@ export default function Header() {
           <Link to="/">
             <StaticImage
               placeholder="blurred"
-              src="../assets/images/coderbunker-logo-black.png"
+              src="../assets/images/coderbunker_canada_logo.png"
               alt="Coderbunker Logo"
               width={50}
             />
