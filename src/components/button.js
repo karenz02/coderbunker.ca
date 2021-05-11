@@ -1,12 +1,13 @@
 import * as React from "react";
 import styled from 'styled-components';
-import { Trans } from 'gatsby-plugin-react-i18next';
-import PDF from '../assets/pdfs/placeholder.pdf';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 
 function CallToAction() {
+  const {t} = useTranslation();
+
   return (
     <ButtonStyle>
-      <a href={PDF} target="_blank" rel="noreferrer" className="px-4 md:px-6 py-2 text-lg md:text-xl">
+      <a href={t('https://form.jotform.com/211253962199057')} target="_blank" rel="noreferrer" className="px-4 md:px-6 py-2 text-lg md:text-xl">
         <Trans>Retain Us</Trans>
       </a>
     </ButtonStyle>
