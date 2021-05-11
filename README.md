@@ -35,17 +35,11 @@ Changes can be seen 👉 [coderbunker.ca](https://coderbunker.ca/)
 
 To be added to Netlify, contact carms.ng@technolibre.ca
 
-### Staging (Netlify)
+### Staging 
 
-Continuous Deployment of the staging branch on Netlify (similar to above, but with the **staging** branch) 
+You can refer to Netlify preview on the pull request.
 
-Changes can be seen 👉 [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.app/)
-
-### Pre-staging (gh-pages)
-
-Note that Netlify has limits on build minutes.  Go with gh-pages first.
-
-Changes can be seen 👉 [coderbunker.github.io/coderbunker.ca](https://coderbunker.github.io/coderbunker.ca/)
+Alternatively, you can use gh-pages 👉 [coderbunker.github.io/coderbunker.ca](https://coderbunker.github.io/coderbunker.ca/)
 
 
 ```
