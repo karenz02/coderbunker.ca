@@ -70,9 +70,8 @@ coderbunker
 │   ├── assets
 │   │   ├── content
 │   │   ├── fonts
-│   │   ├── images
-│   │   │   └── portraits // 👈 add team member image here
-│   │   └── pdfs // 👈 add the Retainer Agreement here
+│   │   └── images
+│   │       └── portraits // 👈 add team member image here
 │   ├── components
 │   │   ├── button.js
 │   │   └── //  👈 add reusable components, etc...
