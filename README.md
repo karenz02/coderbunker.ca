@@ -15,6 +15,10 @@ Staging: [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.a
 * [styled-components](https://styled-components.com/)
 * [Netlify](https://www.netlify.com/)
 
+## Asset Attribution
+
+* [DrawKit](https://www.drawkit.io)
+
 ## What was completed?
 
 * Wireframe (Phase 1): [figma](https://www.figma.com/proto/v1GDDcPMpdDOgRBmwTnDQo/CoderBunker?node-id=419%3A47&scaling=min-zoom&page-id=201%3A1183)
