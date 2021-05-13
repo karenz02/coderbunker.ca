@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from "prop-types"
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { Link } from 'gatsby-plugin-react-i18next';
 import { StaticImage } from "gatsby-plugin-image";
 import styled from 'styled-components';
 
-
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import { CallToAction } from "./button";
-import { FiLinkedin, FiGithub } from 'react-icons/fi';
-import { SiAircanada } from 'react-icons/si'
-export default function Header() {
-  const [isOn, setSwitcher] = useState(false);
-  const toggleSwitcher = () => {
-    setSwitcher(!isOn);
-  }
+import LanguageSwitcher from './language-switcher';
 
-  const { languages, originalPath } = useI18next();
+import { FiLinkedin, FiGithub } from 'react-icons/fi';
+
+export default function Header() {
   return (
     <HeaderStyles>
       <SiteBorderStyles>
@@ -31,32 +26,20 @@ export default function Header() {
           </div>
 
           {/* logo */}
-          {/* TODO: center logo */}
           <Link to="/">
             <StaticImage
               placeholder="blurred"
-              src="../assets/images/coderbunker-logo-black.png"
+              src="../assets/images/coderbunker_canada_logo.png"
               alt="Coderbunker Logo"
               width={50}
             />
           </Link>
 
-
-          <ul className="flex items-center">
+          <ul className="flex items-center text-lg">
             {/* Language Switcher */}
-            <li className={`flex items-center pr-2 md:px-4 ${isOn ? "switched-on" : "switched-off"}`}>
-              <button onClick={toggleSwitcher} aria-label="Language Switcher" className="p-2 relative">
-                <SiAircanada className="text-2xl md:text-3xl"/>
-              </button>
-              {languages.map((lng) => (
-                <div key={lng} className={`text-lg md:text-xl px-1 py-2 sm:p-2 ${isOn ? "block" : "hidden"}`}>
-                  <Link to={originalPath} language={lng}>
-                    {lng.toUpperCase()}
-                  </Link>
-                </div>
-              ))}
-            </li>
+            <LanguageSwitcher />
 
+            {/* Red Retain Us Button */}
             <li>
               <CallToAction />
             </li>
