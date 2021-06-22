@@ -105,8 +105,8 @@ const CarouselCardStyles = styled.div`
   }
   .carousel-btns {
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 1rem;
+    left: 1.5rem;
   }
   button {
     background-color: var(--red);

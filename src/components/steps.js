@@ -21,9 +21,9 @@ export default function Steps() {
           </p>
         </div>  
         {/* cards */}
-        <div className="cards flex flex-col md:flex-row">
+        <div className="cards flex flex-col md:flex-row pt-4">
           {/* card */}
-          <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 my-2 p-4 md:p-8" data-aos="fade-up">
+          <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 md:my-2 p-2 md:p-8" data-aos="fade-up">
             <div className="icon-wrapper text-xl lg:text-2xl mr-4 sm:m-4">
               <FaSignature />
             </div>
@@ -37,7 +37,7 @@ export default function Steps() {
             </div>
           </div>
           {/* card */}
-          <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 my-2 p-4 md:p-8" data-aos="fade-up" data-aos-delay="200">
+          <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 md:my-2 p-2 md:p-8" data-aos="fade-up" data-aos-delay="200">
             <div className="icon-wrapper text-xl lg:text-2xl mr-4 sm:m-4">
               <FaRocket />
             </div>
@@ -51,7 +51,7 @@ export default function Steps() {
             </div>
           </div>
           {/* card */}
-          <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 my-2 p-4 md:p-8" data-aos="fade-up" data-aos-delay="400">
+          <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 md:my-2 p-2 md:p-8" data-aos="fade-up" data-aos-delay="400">
             <div className="icon-wrapper text-xl lg:text-2xl mr-4 sm:m-4">
               <FaCubes />
             </div>

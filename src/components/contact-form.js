@@ -138,7 +138,7 @@ export default function ContactForm() {
         value={formState.message}
       />
       <input type="hidden" name="form-name" value="contact" />
-      <ButtonRed dataAos="fade-right" dataAosDelay="200" type="submit" text={t('Send')} style={{ float: `right` }} />
+      <ButtonRed type="submit" text={t('Send')} style={{ float: `right` }} />
     </ContactFormStyles>
   )
 }

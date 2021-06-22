@@ -43,7 +43,7 @@ export default function Service() {
               .
             </p>
             <ul className="lg:my-3 lg:text-xl">
-              <li>
+              <li className="hidden md:list-item">
                 <Trans>At your pace</Trans>
               </li>
               <li>
