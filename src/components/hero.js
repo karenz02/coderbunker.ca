@@ -26,7 +26,7 @@ export default function Hero() {
               <Trans>We empower freelancer community to excel in long term projects.</Trans>
             </p>
             <StackedAvatar />
-            
+
             {/* stats */}
             {/* <div className="stats p-2 md:p-4 mb-10 flex">
               <div className="px-12">

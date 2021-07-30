@@ -19,7 +19,7 @@ export default function Steps() {
           <p className="hidden md:block text-xl lg:text-2xl my-4">
             <Trans>We keep it simple.</Trans>
           </p>
-        </div>  
+        </div>
         {/* cards */}
         <div className="cards flex flex-col md:flex-row pt-4">
           {/* card */}
@@ -46,7 +46,7 @@ export default function Steps() {
                 <Trans>Start Building</Trans>
               </h3>
               <p className="lg:text-xl">
-                <Trans>Assemble the team based on your problem.  Convert dollars to value right away.</Trans>
+                <Trans>Assemble the team based on your problem. Convert dollars to value right away.</Trans>
               </p>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function Steps() {
                 <Trans>Iteratively develop</Trans>
               </h3>
               <p className="lg:text-xl">
-                <Trans>Continual improvement to develop a tailored. sustainable and scallable solution.</Trans>
+                <Trans>Continual improvement to develop a tailored, sustainable and scalable solution.</Trans>
               </p>
             </div>
           </div>
