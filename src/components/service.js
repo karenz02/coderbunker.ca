@@ -38,9 +38,8 @@ export default function Service() {
               <Trans>Consolidate your HR & IT budget</Trans>
               </span>
               <span className="hidden md:inline">
-                <Trans> towards direct actions to solve your problems</Trans>
+                <Trans> towards direct actions to solve your problems.</Trans>
               </span>
-              .
             </p>
             <ul className="lg:my-3 lg:text-xl">
               <li className="hidden md:list-item">
@@ -100,7 +99,7 @@ const ServiceStyles = styled.section`
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.5);
   }
-  
+
   .icon-wrapper {
     background-color: var(--lightgrey);
     padding: 0.75rem;
