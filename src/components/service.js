@@ -11,7 +11,7 @@ export default function Service() {
       <SiteBorderStyles className="flex flex-col">
         {/* section-header */}
         <div className="text-left md:text-center py-4 md:py-16 lg:py-24">
-          <h2 className="text-3xl lg:text-4xl">
+          <h2 className="text-2xl lg:text-4xl">
             <span className="highlight-red">
               <Trans>Customize</Trans>
             </span>
@@ -41,8 +41,8 @@ export default function Service() {
                 <Trans> towards direct actions to solve your problems.</Trans>
               </span>
             </p>
-            <ul className="lg:my-3 lg:text-xl">
-              <li className="hidden md:list-item">
+            <ul className="hidden md:block lg:my-3 lg:text-xl">
+              <li>
                 <Trans>At your pace</Trans>
               </li>
               <li>
@@ -66,7 +66,7 @@ export default function Service() {
             <p className="my-3 lg:text-xl">
               <Trans>Help you make informed decisions in choosing the right technology.</Trans>
             </p>
-            <ul className="lg:my-3 lg:text-xl">
+            <ul className="hidden md:block lg:my-3 lg:text-xl">
               <li>
                 <Trans>Pay by the hour</Trans>
               </li>
