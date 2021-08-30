@@ -13,9 +13,9 @@ import ContactForm from "./contact-form";
 export default function Contact() {
   return (
     <ContactStyles>
-      <SiteBorderStyles>
+      <SiteBorderStyles className="wrapper">
         {/* section-header */}
-        <div className="text-left md:text-center py-4 md:py-12">
+        <div className="text-left md:text-center py-4 md:pt-12">
           <h2 className="text-2xl lg:text-4xl">
             <span className="highlight-red" style={{ whiteSpace: `nowrap` }}>
               <Trans>Connect</Trans>

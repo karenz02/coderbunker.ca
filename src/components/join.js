@@ -9,7 +9,7 @@ import BackgroundImage from "./bg-image";
 export default function Join() {
   return (
     <JoinStyles>
-      <SiteBorderStyles className="flex flex-col">
+      <SiteBorderStyles className="wrapper">
         {/* section-header */}
         <div className="text-left md:text-center py-4 md:pt-16 lg:pt-24">
           <h2 className="text-2xl lg:text-4xl">
