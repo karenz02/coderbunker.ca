@@ -27,7 +27,7 @@ export default function IndexPage() {
   // const [step, setStep] = useState(0)
   useEffect(() => {
     // initialize Animation on Scroll
-    AOS.init();
+    AOS.init({ offset: 50 });
 
     // Set up observer
     const observer = new IntersectionObserver(([entry]) => {
@@ -72,7 +72,7 @@ export default function IndexPage() {
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: {ns: {in: ["index", "team.fr"]}, language: {eq: $language}}) {
+    locales: allLocale(filter: { language: {eq: $language}, ns: {in: ["index", "team.fr"]} }) {
       edges {
         node {
           ns

@@ -58,7 +58,8 @@ const LogoGardenStyles = styled.div`
     scroll-snap-type: x mandatory;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    height: 15vh;
+    margin-top: 5px;
+    height: 13vh;
     place-items: center center;
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;

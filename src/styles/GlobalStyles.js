@@ -39,6 +39,12 @@ const GlobalStyles = createGlobalStyle`
   button:focus, button:hover {
     outline: none;
   }
+  .wrapper {
+    display: grid;
+    align-items: flex-start;
+    height: 100%;
+    overflow: auto;
+  }
 `;
 
 export default GlobalStyles;
