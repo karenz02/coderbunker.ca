@@ -17,8 +17,8 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     font-size: 16px;
-	  scroll-snap-points-y: repeat(100vh);
-	  scroll-snap-type: y mandatory;
+	  /* scroll-snap-points-y: repeat(100vh); */
+	  /* scroll-snap-type: y mandatory; */
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -37,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
   section {
     padding-top: 100px;
     height: 100vh;
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
   }
   button:focus, button:hover {
     outline: none;
