@@ -7,10 +7,10 @@ import { FaSignature, FaRocket, FaCubes } from "react-icons/fa";
 export default function Steps() {
   return (
     <StepsStyles>
-      <SiteBorderStyles className="flex flex-col">
+      <SiteBorderStyles className="wrapper">
         {/* section-header */}
-        <div className="text-left md:text-center py-4 md:py-16 lg:py-24">
-          <h2 className="text-3xl lg:text-4xl">
+        <div className="text-left md:text-center py-4 md:pt-16 lg:pt-24">
+          <h2 className="text-2xl lg:text-4xl">
             <Trans>Let's Get To </Trans>
             <span className="highlight-red">
               <Trans>Work</Trans>
@@ -21,14 +21,14 @@ export default function Steps() {
           </p>
         </div>
         {/* cards */}
-        <div className="cards flex flex-col md:flex-row pt-4">
+        <div className="cards flex flex-col md:flex-row">
           {/* card */}
           <div className="card flex flex-row sm:flex-col items-center text-left sm:text-center md:flex-1 md:my-2 p-2 md:p-8" data-aos="fade-up">
             <div className="icon-wrapper text-xl lg:text-2xl mr-4 sm:m-4">
               <FaSignature />
             </div>
             <div>
-              <h3 className="text-xl lg:text-2xl pb-2">
+              <h3 className="lg:text-2xl sm:pb-2">
                 <Trans>Retain Us</Trans>
               </h3>
               <p className="lg:text-xl">
@@ -42,7 +42,7 @@ export default function Steps() {
               <FaRocket />
             </div>
             <div>
-              <h3 className="text-xl lg:text-2xl pb-2">
+              <h3 className="lg:text-2xl sm:pb-2">
                 <Trans>Start Building</Trans>
               </h3>
               <p className="lg:text-xl">
@@ -56,7 +56,7 @@ export default function Steps() {
               <FaCubes />
             </div>
             <div>
-              <h3 className="text-xl lg:text-2xl pb-2">
+              <h3 className="lg:text-2xl sm:pb-2">
                 <Trans>Iteratively develop</Trans>
               </h3>
               <p className="lg:text-xl">
@@ -98,7 +98,7 @@ const StepsStyles = styled.section`
   }
   .icon-wrapper {
     background-color: var(--red);
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1rem;
     transform: skew(-16deg);
     width: min-content;
     height: min-content;
@@ -116,14 +116,14 @@ const StepsStyles = styled.section`
     }
     .cards {
       .card:first-child {
-        transform: translateX(10px);
-      }
-      .card:nth-child(2) {
-        transform: translateY(40px);
+        transform: translate(10px, -40px);
       }
       .card:last-child {
-        transform: translate(-10px, 80px)
+        transform: translate(-10px, 40px)
       }
+    }
+    .icon-wrapper {
+      padding: 1rem 1.5rem;
     }
   }
 `;

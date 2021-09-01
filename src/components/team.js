@@ -9,10 +9,10 @@ import Carousel from "./carousel";
 export default function Team() {
   return (
     <TeamStyles>
-      <SiteBorderStyles className="flex flex-col">
+      <SiteBorderStyles className="wrapper">
         {/* section-header */}
-        <div className="text-left md:text-center py-4 md:py-16 lg:py-24">
-          <h2 className="text-3xl lg:text-4xl">
+        <div className="text-left md:text-center py-4 md:pt-16 lg:pt-24">
+          <h2 className="text-2xl lg:text-4xl">
             <span className="highlight-red">
               <Trans>Consult</Trans>
             </span>

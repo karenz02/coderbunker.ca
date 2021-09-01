@@ -64,7 +64,7 @@ const HeaderStyles = styled.header`
   padding: 1rem 0;
   position: fixed;
   width: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(255, 255, 255);
   z-index: 999;
   .header-content {
     display: grid;

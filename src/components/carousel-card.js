@@ -54,8 +54,8 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
           </ul>
         </div>
       </div>
-      <ul className="py-4 block md:hidden" style={{height: `312px`}}>
-        {person.highlights.map((hl, i) => {
+      <ul className="py-4 block md:hidden">
+        {person.highlights.slice(0, 3).map((hl, i) => {
           return (
             <li key={hl + i}>
               <Trans>{hl}</Trans>
@@ -92,7 +92,7 @@ const CarouselCardStyles = styled.div`
   ul {
     list-style-type: "→";
     padding-left: 2rem;
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
     li {
       padding-left: 0.5rem;
     }
@@ -115,7 +115,7 @@ const CarouselCardStyles = styled.div`
       color: var(--white);
     }
   }
-  
+
   button:disabled {
     background-color: var(--lightred)
   }

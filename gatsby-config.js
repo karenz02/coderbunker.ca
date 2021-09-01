@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `Coderbunker Canada`,
     author: `Carms Ng`,
-    description: `Coderbunker Canada Website`, 
+    description: `Coderbunker Canada Website`,
   },
   plugins: [
     `gatsby-plugin-postcss`,

@@ -11,10 +11,10 @@ export default function Hero() {
   return (
     <HeroStyles>
       <SiteBorderStyles>
-        <div className="hero flex flex-col md:flex-row items-center">
+        <div className="hero">
           {/* Hero Content */}
-          <div className="flex-1 flex flex-col justify-center items-start">
-            <h1 className="text-3xl md:text-4xl leading-relaxed md:leading-12 mb-3">
+          <div>
+            <h1 className="text-2xl md:text-4xl">
               <span>
                 <Trans>Introducing Coderbunker in the </Trans>
               </span>
@@ -22,31 +22,20 @@ export default function Hero() {
                 <Trans>North</Trans>
               </span>
             </h1>
-            <p className="text-2xl">
+            <p className="text-1xl md:text-2xl mt-2">
               <Trans>We empower freelancer community to excel in long term projects.</Trans>
             </p>
             <StackedAvatar />
 
-            {/* stats */}
-            {/* <div className="stats p-2 md:p-4 mb-10 flex">
-              <div className="px-12">
-                <small className="uppercase">
-                  <Trans># coders</Trans>
-                </small>
-                <h3 className="text-2xl">50+</h3>
-              </div>
-              <div className="px-12">
-                <small className="uppercase">
-                  <Trans># bunkers</Trans>
-                </small>
-                <h3 className="text-2xl">3</h3>
-              </div>
-            </div> */}
           </div>
 
           {/* Hero Image*/}
-          <div className="flex-1 hidden md:block p-16">
-            <StaticImage placeholder="blurred" src="../assets/images/coders.png"  alt="Coderbunker Coders"/>
+          <div className="hidden md:block p-16">
+            <StaticImage
+              placeholder="blurred"
+              src="../assets/images/coders.png"
+              alt="Coderbunker Coders"
+            />
           </div>
         </div>
 
@@ -62,10 +51,13 @@ const HeroStyles = styled.section`
   position: relative;
   .hero {
     height: calc(80vh - 100px);
+    display: grid;
+    align-items: center;
     p {
       color: var(--darkgrey);
     }
   }
+
   .quarter-circle-bottom-left{
     position: absolute;
     bottom: 0;
@@ -79,16 +71,9 @@ const HeroStyles = styled.section`
     -webkit-border-radius: 0 70vw 0 0;
     z-index: -1;
   }
-  .stats {
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    div:first-child {
-      border-right: 1px solid var(--lightgrey);
-    }
-    small {
-      color: var(--darkgrey);
+  @media (min-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr 1fr;
     }
   }
 `;
