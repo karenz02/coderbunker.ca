@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
@@ -14,7 +14,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function IndexPage() {
-  // you can access the elements with itemsRef.current[n]
+  // Set who in the team is being featured
+  const [teamIndex, setTeamIndex ] = useState(0);
+
+  // You can access the elements with itemsRef.current[n]
   const sectionRefs = useRef([]);
 
   // Compile all the refs
@@ -60,9 +63,9 @@ export default function IndexPage() {
   return (
     <Layout>
       <Seo title={t('Home')} />
-      <div ref={addToRefs} data-step="0"><Hero /></div>
+      <div ref={addToRefs} data-step="0"><Hero sectionRefs={sectionRefs} setTeamIndex={setTeamIndex} /></div>
       <div ref={addToRefs} data-step="1"><Service /></div>
-      <div ref={addToRefs} data-step="2"><Team /></div>
+      <div ref={addToRefs} data-step="2"><Team teamIndex={teamIndex} setTeamIndex={setTeamIndex} /></div>
       <div ref={addToRefs} data-step="3"><Steps /></div>
       <div ref={addToRefs} data-step="4"><Join /></div>
       <div ref={addToRefs} data-step="5"><Contact /></div>
