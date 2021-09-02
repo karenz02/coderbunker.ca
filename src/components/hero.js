@@ -7,7 +7,7 @@ import LogoGarden from '../components/logo-garden';
 import SiteBorderStyles from '../styles/SiteBorderStyles';
 import StackedAvatar from "./stacked-avatar";
 
-export default function Hero({ sectionRefs, setTeamIndex }) {
+export default function Hero({ sectionRefs, setTeamIndex, pausedRef }) {
   return (
     <HeroStyles>
       <SiteBorderStyles>
@@ -25,7 +25,11 @@ export default function Hero({ sectionRefs, setTeamIndex }) {
             <p className="text-1xl md:text-2xl mt-2">
               <Trans>We empower freelancer community to excel in long term projects.</Trans>
             </p>
-            <StackedAvatar sectionRefs={sectionRefs} setTeamIndex={setTeamIndex} />
+            <StackedAvatar
+              sectionRefs={sectionRefs}
+              setTeamIndex={setTeamIndex}
+              pausedRef={pausedRef}
+            />
 
           </div>
 

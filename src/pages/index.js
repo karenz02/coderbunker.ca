@@ -15,6 +15,7 @@ import 'aos/dist/aos.css';
 
 export default function IndexPage() {
   // Set who in the team is being featured
+  const pausedRef = useRef(false);
   const [teamIndex, setTeamIndex ] = useState(0);
 
   // You can access the elements with itemsRef.current[n]
@@ -34,7 +35,7 @@ export default function IndexPage() {
 
     // Set up observer
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !pausedRef.current) {
         const refIndex = parseInt(entry.target.dataset.step)
         const top = sectionRefs.current[refIndex].offsetTop
         window.scrollTo({ top, behavior: 'smooth' })
@@ -57,13 +58,15 @@ export default function IndexPage() {
         }
       })
     }
-  }, [sectionRefs])
+  }, [sectionRefs, pausedRef])
 
   const {t} = useTranslation();
   return (
     <Layout>
       <Seo title={t('Home')} />
-      <div ref={addToRefs} data-step="0"><Hero sectionRefs={sectionRefs} setTeamIndex={setTeamIndex} /></div>
+      <div ref={addToRefs} data-step="0">
+        <Hero sectionRefs={sectionRefs} setTeamIndex={setTeamIndex} pausedRef={pausedRef} />
+      </div>
       <div ref={addToRefs} data-step="1"><Service /></div>
       <div ref={addToRefs} data-step="2"><Team teamIndex={teamIndex} setTeamIndex={setTeamIndex} /></div>
       <div ref={addToRefs} data-step="3"><Steps /></div>

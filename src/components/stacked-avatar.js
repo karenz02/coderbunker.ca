@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image";
 
-export default function StackedAvatar({ sectionRefs, setTeamIndex }) {
+export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) {
   // query all team pics
   const data = useStaticQuery(graphql`{
     allFile(filter: {absolutePath: {regex: "/portraits/"}}, sort: {fields: base}) {
@@ -23,12 +23,18 @@ export default function StackedAvatar({ sectionRefs, setTeamIndex }) {
   }`);
 
   const handleClick = (ev) => {
+    // Pause Observer
+    pausedRef.current = true
+    // Update Team Index
     const updatedTeamIndex = parseInt(ev.currentTarget.dataset.team)
     setTeamIndex(updatedTeamIndex)
-    // Navigate to the team section
+    // Find Team Section Top
     const top = sectionRefs.current[2].offsetTop
-    // Remove smooth scroll behavior to bypass the intersection observer
-    window.scrollTo({ top })
+    // Navigate to the Team Section
+    window.scrollTo({ top, behavior: 'smooth' })
+    setTimeout(() => {
+      pausedRef.current = false
+    }, 1000);
   }
 
   const pics = data.allFile.edges;
