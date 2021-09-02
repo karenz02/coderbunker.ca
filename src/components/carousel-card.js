@@ -5,13 +5,13 @@ import { FiLinkedin, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons
 import { GatsbyImage } from "gatsby-plugin-image";
 import team from '../assets/content/team.json';
 
-export default function CarouselCard({pic, index, count, activeIndex, setActiveIndex}) {
+export default function CarouselCard({ pic, index, count, teamIndex, setTeamIndex }) {
   // handle carousel navigation
   const handlePrev = () => {
-    setActiveIndex(activeIndex - 1)
+    setTeamIndex(teamIndex - 1)
   }
   const handleNext = () => {
-    setActiveIndex(activeIndex + 1)
+    setTeamIndex(teamIndex + 1)
   }
 
   // set the person based on the image
@@ -20,7 +20,7 @@ export default function CarouselCard({pic, index, count, activeIndex, setActiveI
   })[0]
 
   return (
-    <CarouselCardStyles className={`${activeIndex === index ? "active" : ""}`}>
+    <CarouselCardStyles className={`${teamIndex === index ? "active" : ""}`}>
       <div className="flex md:flex-row-reverse overflow-hidden bg-peach md:bg-white">
         <GatsbyImage
           image={pic.node.childImageSharp.gatsbyImageData}
