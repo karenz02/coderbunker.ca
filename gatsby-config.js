@@ -2,8 +2,8 @@ module.exports = {
   pathPrefix: "/coderbunker.ca",
   siteMetadata: {
     title: `Coderbunker Canada`,
-    author: `Carms Ng`,
-    description: `Coderbunker Canada Website`,
+    author: `@Carms-dev`,
+    description: `Coderbunker est une communauté internationale de passionnés de développement logiciel. Nous fonctionnons sur une base de budget d'ingénierie mensuels prépayés sur lesquels nous recrutons des équipes formées de talents flexibles qui participent activement dans la construction d'une communauté qui les rends heureux.`,
   },
   plugins: [
     `gatsby-transformer-json`,
