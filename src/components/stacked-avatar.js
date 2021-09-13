@@ -3,25 +3,28 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) {
-  // query all team pics
-  const data = useStaticQuery(graphql`{
-    allFile(filter: {absolutePath: {regex: "/portraits/"}}, sort: {fields: base}) {
-      edges {
-        node {
-          base
-          childImageSharp {
-            gatsbyImageData(
-              width: 75,
-              placeholder: BLURRED,
-              layout: FIXED
-            )
-            id
+  // Query all team name and image sorted by image file name
+  const { content } = useStaticQuery(graphql`{
+    content: allContentJson(sort: {fields: en___image___base, order: ASC}) {
+      nodes {
+        en {
+          name
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 75,
+                height: 75
+                placeholder: BLURRED,
+                layout: CONSTRAINED
+              )
+            }
           }
         }
       }
     }
   }`);
 
+  // handle clicking on the individual avatar
   const handleClick = (ev) => {
     // Pause Observer
     pausedRef.current = true
@@ -32,25 +35,41 @@ export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) 
     const top = sectionRefs.current[2].offsetTop
     // Navigate to the Team Section
     window.scrollTo({ top, behavior: 'smooth' })
-    setTimeout(() => {
-      pausedRef.current = false
-    }, 1000);
+    // Un-pause observer effects when completed
+    const checkIfScrollCompleted = setInterval(() => {
+      if (window.scrollY === top) {
+        pausedRef.current = false;
+        clearInterval(checkIfScrollCompleted);
+      }
+    }, 25);
   }
 
-  const pics = data.allFile.edges;
+  const members = content.nodes.map(member => member.en)
+
   return (
-    <div className="py-8">
-      {pics.map((pic, i) => {
-        const zIndex = pics.length - i;
+    <div className="py-8 flex">
+      {members.map((member, i) => {
+        const zIndex = members.length - i;
         const translateX = i * -30;
         return (
-          <button data-team={i} onClick={handleClick} key={pic.node.childImageSharp.id}>
+          <button
+            data-team={i} onClick={handleClick} key={`avatar-${member.name}`}
+            style={{
+              width: `75px`,
+              height: `75px`,
+              zIndex: `${zIndex}`,
+              border: `1px solid var(--white)`,
+              borderRadius: `50%`,
+              background: `var(--white)`,
+              transform: `translateX(${translateX}%)`,
+              position: `relative`
+            }}
+          >
             <GatsbyImage
-              image={pic.node.childImageSharp.gatsbyImageData}
+              image={member.image?.childImageSharp?.gatsbyImageData}
               className="inline-block rounded-full"
-              style={{width: `75px`, height: `75px`, zIndex: `${zIndex}`, border: `1px solid var(--white)`, transform: `translateX(${translateX}%)`}}
               imgStyle={{objectPosition: `top center`}}
-              alt="pic.node.base.split('.')[0]" />
+              alt={member.name} />
           </button>
         );
       }).slice(0, 7)}

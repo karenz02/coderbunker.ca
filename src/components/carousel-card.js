@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { FiLinkedin, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { GatsbyImage } from "gatsby-plugin-image";
-import team from '../assets/content/team.json';
 
-export default function CarouselCard({ pic, index, count, teamIndex, setTeamIndex }) {
+export default function CarouselCard({ member, index, count, teamIndex, setTeamIndex }) {
+  const { name, title, image, linkedin, github, highlights } = member
+
   // handle carousel navigation
   const handlePrev = () => {
     setTeamIndex(teamIndex - 1)
@@ -14,56 +14,37 @@ export default function CarouselCard({ pic, index, count, teamIndex, setTeamInde
     setTeamIndex(teamIndex + 1)
   }
 
-  // set the person based on the image
-  const person = team.content.filter(member => {
-    return member.image === pic.node.base;
-  })[0]
-
   return (
     <CarouselCardStyles className={`${teamIndex === index ? "active" : ""}`}>
-      <div className="flex md:flex-row-reverse overflow-hidden bg-peach md:bg-white">
+      <div className="flex flex-1 md:flex-row-reverse overflow-hidden bg-peach md:bg-white">
         <GatsbyImage
-          image={pic.node.childImageSharp.gatsbyImageData}
+          image={image?.childImageSharp?.gatsbyImageData}
           className="w-1/3-vw h-1/3-vw md:w-1/3 md:h-auto"
-          imgStyle={{objectPosition: `top center`}}
-          alt={pic.node.base.split('.')[0]}
-          width={500}/>
-
-        <div className="p-4 md:p-8 w-2/3">
+          imgStyle={{ objectPosition: `top center` }}
+          alt={name}
+        />
+        <div className="p-2 md:p-8 w-2/3">
           <div className="flex flex-col md:flex-row justify-between h-full md:h-auto">
             <div>
-              <h3 className="sm:text-2xl sm:mb-2">{person.name}</h3>
-              <p className="sm:text-xl">
-                <Trans>{person.title}</Trans>
-              </p>
+              <h3 className="text-sm sm:text-2xl sm:mb-2">{name}</h3>
+              <p className="text-sm sm:text-xl">{title}</p>
             </div>
-            <div className="text-xl sm:text-2xl md:text-3xl flex">
-              <a href={person.linkedin} aria-label="social media icon Linkedin" target="_blank" rel="noreferrer"><FiLinkedin className="mr-3"/></a>
-              <a href={person.github} aria-label="social media icon Github" target="_blank" rel="noreferrer"><FiGithub className="md:ml-3"/></a>
+            <div className="text-sm sm:text-2xl md:text-3xl flex">
+              <a href={linkedin} aria-label="social media icon Linkedin" target="_blank" rel="noreferrer"><FiLinkedin className="mr-3"/></a>
+              <a href={github} aria-label="social media icon Github" target="_blank" rel="noreferrer"><FiGithub className="md:ml-3"/></a>
             </div>
           </div>
-
+          {/* Highlights for large screens, show all */}
           <ul className="py-4 hidden md:block" style={{height: `312px`}}>
-            {person.highlights.map(hl => {
-              return (
-                <li key={hl}>
-                  <Trans>{hl}</Trans>
-                </li>
-              )
-            })}
+            {highlights.map(hl => <li key={hl}>{hl}</li>)}
           </ul>
         </div>
       </div>
-      <ul className="py-4 block md:hidden">
-        {person.highlights.slice(0, 3).map((hl, i) => {
-          return (
-            <li key={hl + i}>
-              <Trans>{hl}</Trans>
-            </li>
-          )
-        })}
+      {/* highlights for small screen, show first few */}
+      <ul className="text-sm py-4 block md:hidden">
+        {highlights.slice(0, 3).map((hl, i) => <li key={hl + i}>{hl}</li>)}
       </ul>
-      {/* Button */}
+      {/* Button to navigate prev and next */}
       <div className="carousel-btns">
         <button onClick={handlePrev} className="text-2xl p-4" disabled={index === 0}>
           <FiChevronLeft />

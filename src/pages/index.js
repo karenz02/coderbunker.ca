@@ -13,7 +13,9 @@ import Contact from "../components/contact";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-export default function IndexPage() {
+export default function IndexPage({ pageContext }) {
+  const locale = pageContext.language
+
   // Set who in the team is being featured
   const pausedRef = useRef(false);
   const [teamIndex, setTeamIndex ] = useState(0);
@@ -52,7 +54,7 @@ export default function IndexPage() {
 
     // Clean up Observer to unobserve each ref
     return () => {
-      refs.current.forEach(ref => {
+      refs.forEach(ref => {
         if (ref) {
           observer.unobserve(ref)
         }
@@ -68,7 +70,7 @@ export default function IndexPage() {
         <Hero sectionRefs={sectionRefs} setTeamIndex={setTeamIndex} pausedRef={pausedRef} />
       </div>
       <div ref={addToRefs} data-step="1"><Service /></div>
-      <div ref={addToRefs} data-step="2"><Team teamIndex={teamIndex} setTeamIndex={setTeamIndex} /></div>
+      <div ref={addToRefs} data-step="2"><Team teamIndex={teamIndex} setTeamIndex={setTeamIndex} locale={locale}/></div>
       <div ref={addToRefs} data-step="3"><Steps /></div>
       <div ref={addToRefs} data-step="4"><Join /></div>
       <div ref={addToRefs} data-step="5"><Contact /></div>
@@ -78,7 +80,7 @@ export default function IndexPage() {
 
 export const query = graphql`
   query($language: String!) {
-    locales: allLocale(filter: { language: {eq: $language}, ns: {in: ["index", "team.fr"]} }) {
+    locales: allLocale(filter: { language: {eq: $language} }) {
       edges {
         node {
           ns

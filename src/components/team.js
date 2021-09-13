@@ -6,7 +6,7 @@ import SiteBorderStyles from '../styles/SiteBorderStyles';
 import BackgroundImage from "./bg-image";
 import Carousel from "./carousel";
 
-export default function Team({ teamIndex, setTeamIndex }) {
+export default function Team({ teamIndex, setTeamIndex, locale }) {
   return (
     <TeamStyles>
       <SiteBorderStyles className="wrapper">
@@ -23,7 +23,7 @@ export default function Team({ teamIndex, setTeamIndex }) {
           </p>
         </div>
         {/* Carousel */}
-        <Carousel teamIndex={teamIndex} setTeamIndex={setTeamIndex} />
+        <Carousel teamIndex={teamIndex} setTeamIndex={setTeamIndex} locale={locale}/>
       </SiteBorderStyles>
       <div className="bg-img-wrapper">
         <BackgroundImage style={{width: `48vw`}}/>
