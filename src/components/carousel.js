@@ -5,7 +5,7 @@ import CarouselCard from "./carousel-card";
 export default function Carousel({ teamIndex, setTeamIndex, locale }) {
   // Query all team member info
   const { content } = useStaticQuery(graphql`{
-    content: allContentJson {
+    content: allContentJson(sort: {fields: en___image___base, order: ASC}) {
       group(field: parent___children) {
         nodes {
           en {
@@ -15,7 +15,8 @@ export default function Carousel({ teamIndex, setTeamIndex, locale }) {
             image {
               childImageSharp {
                 gatsbyImageData(
-                  width: 500,
+                  width: 360,
+                  height: 500,
                   placeholder: BLURRED,
                   layout: CONSTRAINED
                 )
@@ -55,8 +56,6 @@ export default function Carousel({ teamIndex, setTeamIndex, locale }) {
           <CarouselCard
             member={member}
             key={member.github}
-            // pic={pic}
-            // key={pic.node.id}
             index={index}
             count={members.length}
             teamIndex={teamIndex}

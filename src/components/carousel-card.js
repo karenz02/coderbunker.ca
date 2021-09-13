@@ -4,7 +4,7 @@ import { FiLinkedin, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function CarouselCard({ member, index, count, teamIndex, setTeamIndex }) {
-  const { name, title, linkedin, github, image, highlights } = member
+  const { name, title, image, linkedin, github, highlights } = member
 
   // handle carousel navigation
   const handlePrev = () => {
@@ -16,20 +16,20 @@ export default function CarouselCard({ member, index, count, teamIndex, setTeamI
 
   return (
     <CarouselCardStyles className={`${teamIndex === index ? "active" : ""}`}>
-      <div className="flex md:flex-row-reverse overflow-hidden bg-peach md:bg-white">
+      <div className="flex flex-1 md:flex-row-reverse overflow-hidden bg-peach md:bg-white">
         <GatsbyImage
-          image={image.childImageSharp.gatsbyImageData}
+          image={image?.childImageSharp?.gatsbyImageData}
           className="w-1/3-vw h-1/3-vw md:w-1/3 md:h-auto"
-          imgStyle={{objectPosition: `top center`}}
+          imgStyle={{ objectPosition: `top center` }}
           alt={name}
         />
-        <div className="p-4 md:p-8 w-2/3">
+        <div className="p-2 md:p-8 w-2/3">
           <div className="flex flex-col md:flex-row justify-between h-full md:h-auto">
             <div>
-              <h3 className="sm:text-2xl sm:mb-2">{name}</h3>
-              <p className="sm:text-xl">{title}</p>
+              <h3 className="text-sm sm:text-2xl sm:mb-2">{name}</h3>
+              <p className="text-sm sm:text-xl">{title}</p>
             </div>
-            <div className="text-xl sm:text-2xl md:text-3xl flex">
+            <div className="text-sm sm:text-2xl md:text-3xl flex">
               <a href={linkedin} aria-label="social media icon Linkedin" target="_blank" rel="noreferrer"><FiLinkedin className="mr-3"/></a>
               <a href={github} aria-label="social media icon Github" target="_blank" rel="noreferrer"><FiGithub className="md:ml-3"/></a>
             </div>
@@ -41,7 +41,7 @@ export default function CarouselCard({ member, index, count, teamIndex, setTeamI
         </div>
       </div>
       {/* highlights for small screen, show first few */}
-      <ul className="py-4 block md:hidden">
+      <ul className="text-sm py-4 block md:hidden">
         {highlights.slice(0, 3).map((hl, i) => <li key={hl + i}>{hl}</li>)}
       </ul>
       {/* Button to navigate prev and next */}

@@ -3,16 +3,17 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) {
-  // query all team name and image
+  // Query all team name and image sorted by image file name
   const { content } = useStaticQuery(graphql`{
-    content: allContentJson {
+    content: allContentJson(sort: {fields: en___image___base, order: ASC}) {
       nodes {
         en {
           name
           image {
             childImageSharp {
               gatsbyImageData(
-                width: 500,
+                width: 75,
+                height: 75
                 placeholder: BLURRED,
                 layout: CONSTRAINED
               )
@@ -23,6 +24,7 @@ export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) 
     }
   }`);
 
+  // handle clicking on the individual avatar
   const handleClick = (ev) => {
     // Pause Observer
     pausedRef.current = true
@@ -45,19 +47,29 @@ export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) 
   const members = content.nodes.map(member => member.en)
 
   return (
-    <div className="py-8">
+    <div className="py-8 flex">
       {members.map((member, i) => {
-        const { name, image } = member
         const zIndex = members.length - i;
-        const translateX = i * - 30;
+        const translateX = i * -30;
         return (
-          <button data-team={i} onClick={handleClick} key={`avatar-${name}`}>
+          <button
+            data-team={i} onClick={handleClick} key={`avatar-${member.name}`}
+            style={{
+              width: `75px`,
+              height: `75px`,
+              zIndex: `${zIndex}`,
+              border: `1px solid var(--white)`,
+              borderRadius: `50%`,
+              background: `var(--white)`,
+              transform: `translateX(${translateX}%)`,
+              position: `relative`
+            }}
+          >
             <GatsbyImage
-              image={image.childImageSharp.gatsbyImageData}
+              image={member.image?.childImageSharp?.gatsbyImageData}
               className="inline-block rounded-full"
-              style={{width: `75px`, height: `75px`, zIndex: `${zIndex}`, border: `1px solid var(--white)`, transform: `translateX(${translateX}%)`}}
               imgStyle={{objectPosition: `top center`}}
-              alt={name} />
+              alt={member.name} />
           </button>
         );
       }).slice(0, 7)}
