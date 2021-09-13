@@ -6,47 +6,45 @@ export default function Carousel({ teamIndex, setTeamIndex, locale }) {
   // Query all team member info
   const { content } = useStaticQuery(graphql`{
     content: allContentJson(sort: {fields: en___image___base, order: ASC}) {
-      group(field: parent___children) {
-        nodes {
-          en {
-            name
-            title
-            linkedin
-            image {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 360,
-                  height: 500,
-                  placeholder: BLURRED,
-                  layout: CONSTRAINED
-                )
-              }
+      nodes {
+        en {
+          name
+          title
+          linkedin
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 360,
+                height: 500,
+                placeholder: BLURRED,
+                layout: CONSTRAINED
+              )
             }
-            highlights
-            github
           }
-          fr {
-            name
-            title
-            linkedin
-            image {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 500,
-                  placeholder: BLURRED,
-                  layout: CONSTRAINED
-                )
-              }
+          highlights
+          github
+        }
+        fr {
+          name
+          title
+          linkedin
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                width: 500,
+                placeholder: BLURRED,
+                layout: CONSTRAINED
+              )
             }
-            highlights
-            github
           }
+          highlights
+          github
         }
       }
     }
   }`);
 
-  const members = content.group[0].nodes
+  const members = content.nodes
   const membersLocalized = members.map(member => member[locale])
 
   return (
