@@ -33,9 +33,13 @@ export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) 
     const top = sectionRefs.current[2].offsetTop
     // Navigate to the Team Section
     window.scrollTo({ top, behavior: 'smooth' })
-    setTimeout(() => {
-      pausedRef.current = false
-    }, 1000);
+    // Un-pause observer effects when completed
+    const checkIfScrollCompleted = setInterval(() => {
+      if (window.scrollY === top) {
+        pausedRef.current = false;
+        clearInterval(checkIfScrollCompleted);
+      }
+    }, 25);
   }
 
   const members = content.nodes.map(member => member.en)
