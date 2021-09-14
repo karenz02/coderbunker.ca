@@ -36,7 +36,7 @@ export default function LogoGarden() {
         </p>
         <div className="horizontal-scroll-wrapper">
           {allPartnersJson.nodes.map(partner => (
-            <a href={partner.website} target="_blank" rel="noreferrer" key={partner.id}>
+            <a title={partner.name} href={partner.website} target="_blank" rel="noreferrer" key={partner.id}>
               <GatsbyImage
                 image={partner.logo?.childImageSharp.gatsbyImageData}
                 imgStyle={{ objectFit: `contain` }}
