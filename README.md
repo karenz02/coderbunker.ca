@@ -35,17 +35,17 @@ Staging: [coderbunker-staging.netlify.app](https://coderbunker-staging.netlify.a
 
 
 
-## How to deploy? 
+## How to deploy?
 
 ### Production (Netlify)
 
-Continuous Deployment on Netlify of the main branch of this repo (i.e. everytime code got merged onto the **main** branch, it will trigger a rebuild on Netlify. 
+Continuous Deployment on Netlify of the main branch of this repo (i.e. everytime code got merged onto the **main** branch, it will trigger a rebuild on Netlify.
 
 Changes can be seen 👉 [coderbunker.ca](https://coderbunker.ca/)
 
 
 
-### Staging 
+### Staging
 
 You can refer to Netlify deploy preview on the pull request.
 
@@ -76,13 +76,15 @@ gatsby build
 
 ```
 coderbunker
-├── locales 
+├── locales
 ├── src
 │   ├── assets
-│   │   ├── content 👈 Where team member info is stored
+│   │   ├── content
+│   │   │   ├── members  👈 Where team member info is stored
+│   │   │   └── partners 👈 Where partners (& clients) info is stored
 │   │   ├── fonts
 │   │   └── images
-│   ├── components 👈 reusable components
+│   ├── components       👈 reusable components
 │   ├── pages
 │   │   ├── 404.js
 │   │   └── index.js
@@ -100,14 +102,17 @@ coderbunker
 
 ### Add a team member
 
-#### Folder Structure 
+#### Folder Structure
 
 ```
 ├── src
     ├── assets
-        └── content // 👈 add team member info here
-            ├── 01_ricky_ng_adam.jpg
-            └── 01_ricky_ng_adam.json
+        └── content
+            ├── members
+            │       ├── 01_ricky_ng_adam.jpg  👈 team member portrait
+            │       └── 01_ricky_ng_adam.json 👈 team member info
+            └── partners
+
 
 ```
 #### JSON File Example
@@ -120,7 +125,7 @@ coderbunker
     "linkedin": "https://www.linkedin.com/in/rngadam/",
     "github": "https://github.com/rngadam",
     "image": "01_ricky_ng_adam.jpg",
-    "highlights": [ 
+    "highlights": [
       "25 years experience in software development",
       "Architecture, design, R&D",
       "Team recruitment, building and coaching",
@@ -151,12 +156,46 @@ coderbunker
 ```
 
 
-1. Copy an existing JSON file in the `/content` folder, and rename it following the naming convention i.e. `01_ricky_ng_adam`
+1. Copy an existing JSON file in the `/content/members` folder, and rename it following the naming convention i.e. `01_ricky_ng_adam`
 
-2. Add an image to the same folder `/content`, make sure the image file name matched what was specified in the json file.
+2. Add an image to the same folder `/content/members`, make sure the image file name matched what was specified in the json file.
 
-Please keep the highlights short and sweet, max 7 bullet points. 
+Please keep the highlights short and sweet, max 7 bullet points.
 
+
+
+
+## Partner (& Client) Content
+
+### Add a partner
+
+#### Folder Structure
+
+```
+├── src
+    ├── assets
+        └── content
+            ├── members
+            └── partners
+                    ├── 01_drave.json 👈 partner info
+                    └── 01_drave.png  👈 partner logo
+
+```
+#### JSON File Example
+
+```
+{
+  "name": "Drave développement",
+  "website": "https://drave.quebec/",
+  "logo": "01_drave.png"
+}
+
+```
+
+
+1. Copy an existing JSON file in the `/content/partners` folder, and rename it following the naming convention i.e. `01_drave`
+
+2. Add an image to the same folder `/content/partners`, make sure the image file name matched what was specified in the json file.
 
 
 ## Translation
@@ -164,7 +203,7 @@ Please keep the highlights short and sweet, max 7 bullet points.
 ### add/remove translation strings
 
 ```
-├── locales 
+├── locales
     └── fr
-        └── index.json // 👈 non team-member related translation string goes here     
+        └── index.json // 👈 non team-member related translation string goes here
 ```
