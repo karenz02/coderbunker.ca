@@ -7,39 +7,41 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 
 export default function LogoGarden() {
   // query all partnerlogos
-  const data = useStaticQuery(graphql`{
-    allFile(filter: {absolutePath: {regex: "/logos/"}}) {
-      edges {
-        node {
-          base
+  const { allPartnersJson } = useStaticQuery(graphql`{
+    allPartnersJson(sort: {fields: logo___base, order: ASC}) {
+      nodes {
+        id
+        name
+        website
+        logo {
           childImageSharp {
             gatsbyImageData(
-              width: 150,
-              placeholder: BLURRED,
-              layout: CONSTRAINED
+              width: 120,
+              height: 60,
+              placeholder: TRACED_SVG,
+              layout: CONSTRAINED,
+              transformOptions: {fit: CONTAIN, grayscale: true}
             )
-            id
           }
         }
       }
     }
   }`);
-  const logos = data.allFile.edges;
+
   return (
     <LogoGardenStyles>
       <SiteBorderStyles>
         <p className="text-center">
           <Trans>Trusted by these partners and clients</Trans>
         </p>
-        <div className="logos">
-          {logos.map(({node}) => (
-            <GatsbyImage
-              width={150}
-              image={node.childImageSharp.gatsbyImageData}
-              imgStyle={{ width: `auto`, height: `auto`, top: `50%`, left: `50%`, transform: `translate(-50%, -50%)`}}
-              className="m-4"
-              key={node.childImageSharp.id}
-              alt={node.base.split('.')[0]} />
+        <div className="horizontal-scroll-wrapper">
+          {allPartnersJson.nodes.map(partner => (
+            <a href={partner.website} target="_blank" rel="noreferrer" key={partner.id}>
+              <GatsbyImage
+                image={partner.logo?.childImageSharp.gatsbyImageData}
+                imgStyle={{ objectFit: `contain` }}
+                alt={partner.name} />
+            </a>
           ))}
         </div>
       </SiteBorderStyles>
@@ -49,31 +51,39 @@ export default function LogoGarden() {
 
 const LogoGardenStyles = styled.div`
   background-color: var(--lightgrey);
-  height: 20vh;
-  padding: 20px 0;
   p {
     color: var(--darkgrey);
   }
-  .logos {
-    scroll-snap-type: x mandatory;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-top: 5px;
-    height: 13vh;
-    place-items: center center;
-    -webkit-overflow-scrolling: touch;
+  > div {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 20vh;
+  }
+  .horizontal-scroll-wrapper {
+    height: 100%;
+    max-width: unset;
     overflow-x: scroll;
     overflow-y: hidden;
-    /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    & > * {
-      scroll-snap-align: start;
-      min-width: 150px;
-    }
-    /* Hide scrollbar for Chrome, Safari and Opera */
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
+    }
+    > a {
+      display: inline-table;
+      height: 100%;
+      padding: 0 1rem;
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    @media (min-width: 1024px) {
+      > a {
+        margin: 0 1rem;
+      }
+      margin: 0 auto;
     }
   }
 `;
