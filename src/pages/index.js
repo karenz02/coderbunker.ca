@@ -30,7 +30,6 @@ export default function IndexPage({ pageContext }) {
     }
   }
 
-  // const [step, setStep] = useState(0)
   useEffect(() => {
     // initialize Animation on Scroll
     AOS.init({ offset: 50 });

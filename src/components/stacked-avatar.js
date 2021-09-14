@@ -4,8 +4,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) {
   // Query all team name and image sorted by image file name
-  const { content } = useStaticQuery(graphql`{
-    content: allContentJson(sort: {fields: en___image___base, order: ASC}) {
+  const { allMembersJson } = useStaticQuery(graphql`{
+    allMembersJson(sort: {fields: en___image___base, order: ASC}) {
       nodes {
         en {
           name
@@ -44,7 +44,7 @@ export default function StackedAvatar({ sectionRefs, setTeamIndex, pausedRef }) 
     }, 25);
   }
 
-  const members = content.nodes.map(member => member.en)
+  const members = allMembersJson.nodes.map(member => member.en)
 
   return (
     <div className="py-8 flex">
